@@ -1,0 +1,4 @@
+[
+{"En":"Life is butiful.","Ja":"人生は美しい。"},
+{"En":"life","Ja":"人生"}
+]

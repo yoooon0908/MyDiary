@@ -1,0 +1,4 @@
+[
+{"En":"I dislike study.","Ja":"私は、勉強が嫌い。"},
+{"En":"study","Ja":"勉強"}
+]

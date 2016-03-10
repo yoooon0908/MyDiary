@@ -1,0 +1,4 @@
+[
+{"En":"I want to go trip.","Ja":"旅行に行きたい。"},
+{"En":"trip","Ja":"旅行"}
+]
