@@ -43,8 +43,6 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
         super.viewDidLoad()
         
-       
-
         
         appDelegate.edit = "edit"
         readData()
@@ -60,6 +58,11 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
         
     }
+    
+    
+    
+
+    
     
     // データ登録/更新
     func writeData() -> Bool{
@@ -168,7 +171,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     override func viewWillAppear(animated: Bool) {
         var langEn = appDelegate.langEn
         thContent.text = appDelegate.texttmp + langEn
-
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -215,31 +218,17 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
         
         picker.dismissViewControllerAnimated(true, completion: nil)
-        let assetURL:AnyObject = info[UIImagePickerControllerReferenceURL]!
-        let url = NSURL(string: assetURL.description)
+        //NSUserDefaultsのインスタンスを生成
+        let defaults = NSUserDefaults.standardUserDefaults()
         
-        //ユーザーデフォルトを用意する
-        var myDefault = NSUserDefaults.standardUserDefaults()
+        //"NAME"というキーで配列namesを保存
+        defaults.setObject(assetURL, forKey:"NAME")
         
-        var peopleList:[NSDictionary] = []
-        
-        if myDefault.arrayForKey("myString2") != nil {
-            var myStr:Array = myDefault.arrayForKey("myString2")!
-            
-            if myStr.count > 0 {
-                peopleList = myStr as! NSArray 
-            }
-            
-        }
-        
-        var data:NSArray = ["image":assetURL.description]
-        peopleList.append(data)
+        // シンクロを入れないとうまく動作しないときがあります
+        defaults.synchronize()
+
         
         
-        //データを書き込んで
-        myDefault.setObject(peopleList, forKey: "myString2")
-        //即反映させる
-        myDefault.synchronize()
         
         
     }
