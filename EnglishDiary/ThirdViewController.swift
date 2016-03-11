@@ -185,18 +185,8 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
             
             //let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs(fileURLWithPath: NSURL(assetURL), options: nil)
             
-            var assetURL:NSURL = NSURL(fileURLWithPath: myStr)
+            var assetURL = NSURL(string: myStr as! String)!
             
-//            let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs([assetURL], options: nil)
-//            
-//            let asset: PHAsset = fetchResult.firstObject as! PHAsset
-//            let manager: PHImageManager = PHImageManager()
-//            manager.requestImageForAsset(asset,
-//                targetSize: CGSizeMake(100, 100),
-//                contentMode: .AspectFill,
-//                options: nil) { (image, info) -> Void in
-//                    
-//                    self.thImage.image = image
             
                     
                     let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs([assetURL], options: nil)
@@ -207,7 +197,8 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
                         contentMode: .AspectFill,
                         options: nil) { (image, info) -> Void in
                             
-                            self.thImage.image = image                    }
+                            self.thImage.image = image
+                    }
             
         
         }

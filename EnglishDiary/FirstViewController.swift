@@ -66,13 +66,13 @@ class FirstViewController: UIViewController {
                 print("READ DATE:\(txt3)")
                 print("READ IMAGE:\(txt4)")
                 
-                for data in readData() {
-                    
-                    firstTitle.text = txt2
-                    firstDate.text = txt3
-                    firstImage.image = txt4
-                    
-                }
+//                for data in readData() {
+//                    
+//                    firstTitle.text = txt2
+//                    firstDate.text = txt3
+//                    firstImage.image = txt4
+//                    
+//                }
 
                 
             }

@@ -7,6 +7,7 @@
 //
 import UIKit
 import CoreData
+import Photos
 
 class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
@@ -138,6 +139,28 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
          var langEn = appDelegate.langEn
         secContent.text = appDelegate.texttmp + langEn
         
+        var myDefault = NSUserDefaults.standardUserDefaults()
+        
+        
+        if (myDefault.objectForKey("NAME") != nil){
+            var myStr:String = myDefault.objectForKey("NAME")! as! String
+
+            var assetURL = NSURL(string: myStr as! String)!
+        
+        
+        
+            let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs([assetURL], options: nil)
+            let asset: PHAsset = fetchResult.firstObject as! PHAsset
+            let manager: PHImageManager = PHImageManager()
+                manager.requestImageForAsset(asset,
+                    targetSize: CGSizeMake(100, 100),
+                    contentMode: .AspectFill,
+                    options: nil) { (image, info) -> Void in
+                
+                        self.secImageView.image = image
+            }
+
+        }
 
     }
     
@@ -211,6 +234,16 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
                 // ImageViewにその画像を設定
                 secImageView.image = photo
                 assetURL = (info[UIImagePickerControllerReferenceURL]?.description)!
+                
+                //NSUserDefaultsのインスタンスを生成
+                let defaults = NSUserDefaults.standardUserDefaults()
+                
+                //"NAME"というキーで配列namesを保存
+                defaults.setObject(assetURL, forKey:"NAME")
+                
+                // シンクロを入れないとうまく動作しないときがあります
+                defaults.synchronize()
+
             }
         }
         
