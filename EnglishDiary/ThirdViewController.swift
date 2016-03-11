@@ -10,6 +10,7 @@
 import UIKit
 import Social
 import CoreData
+import Photos
 
 class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -172,6 +173,44 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         var langEn = appDelegate.langEn
         thContent.text = appDelegate.texttmp + langEn
         
+        
+        var myDefault = NSUserDefaults.standardUserDefaults()
+        
+        
+        if (myDefault.objectForKey("NAME") != nil){
+            var myStr:String = myDefault.objectForKey("NAME")! as! String
+            //assetURLの読み込み
+            //var image = assetURL
+            
+            
+            //let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs(fileURLWithPath: NSURL(assetURL), options: nil)
+            
+            var assetURL:NSURL = NSURL(fileURLWithPath: myStr)
+            
+//            let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs([assetURL], options: nil)
+//            
+//            let asset: PHAsset = fetchResult.firstObject as! PHAsset
+//            let manager: PHImageManager = PHImageManager()
+//            manager.requestImageForAsset(asset,
+//                targetSize: CGSizeMake(100, 100),
+//                contentMode: .AspectFill,
+//                options: nil) { (image, info) -> Void in
+//                    
+//                    self.thImage.image = image
+            
+                    
+                    let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs([assetURL], options: nil)
+                    let asset: PHAsset = fetchResult.firstObject as! PHAsset
+                    let manager: PHImageManager = PHImageManager()
+                    manager.requestImageForAsset(asset,
+                        targetSize: CGSizeMake(100, 100),
+                        contentMode: .AspectFill,
+                        options: nil) { (image, info) -> Void in
+                            
+                            self.thImage.image = image                    }
+            
+        
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -214,19 +253,20 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 thImage.image = photo
                 assetURL = (info[UIImagePickerControllerReferenceURL]?.description)!
                 
+                //NSUserDefaultsのインスタンスを生成
+                let defaults = NSUserDefaults.standardUserDefaults()
+                
+                //"NAME"というキーで配列namesを保存
+                defaults.setObject(assetURL, forKey:"NAME")
+                
+                // シンクロを入れないとうまく動作しないときがあります
+                defaults.synchronize()
+
             }
         }
         
         picker.dismissViewControllerAnimated(true, completion: nil)
-        //NSUserDefaultsのインスタンスを生成
-        let defaults = NSUserDefaults.standardUserDefaults()
         
-        //"NAME"というキーで配列namesを保存
-        defaults.setObject(assetURL, forKey:"NAME")
-        
-        // シンクロを入れないとうまく動作しないときがあります
-        defaults.synchronize()
-
         
         
         
