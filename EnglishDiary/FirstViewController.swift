@@ -11,14 +11,13 @@ import UIKit
 import CoreData
 
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     
    
     
-    @IBOutlet weak var firstTitle: UILabel!
-    @IBOutlet weak var firstDate: UILabel!
-    @IBOutlet weak var firstImage: UIImageView!
+    
+  
     @IBOutlet weak var myiAd: ADBannerView!
     
     //DBの名前
@@ -96,6 +95,47 @@ class FirstViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
    
+    
+    
+    //行数
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    //表示するセル
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        
+        var txt2 = ""
+        var txt3 = ""
+//        var txt2 = ""
+//        var txt3 = ""
+      
+      
+        var cell = tableView.dequeueReusableCellWithIdentifier("myCell3")! as UITableViewCell
+        //tag1 写真
+        //var firstImage = cell.viewWithTag(1) as! UIImage
+            //firstImage.image = txt4
+        //tag2 Date
+        var firstDate = cell.viewWithTag(2) as! UILabel
+            firstDate.text = txt3 as? String
+        //tag3 Title
+        var firstTitle = cell.viewWithTag(3) as! UILabel
+            firstTitle.text = txt2 as? String
+        
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("\(indexPath.row)行目を選択")
+        //select = indexPath.row
+        performSegueWithIdentifier("show1",sender: nil)
+    }
+
+    
+    
+    
     
     
     

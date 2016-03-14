@@ -215,7 +215,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         facebookVC.setInitialText(thContent.text)
         
         //イメージが出ない
-        //facebookVC.addImage(UIImage(named: txt4 as! String))
+        facebookVC.addImage(thImage.image)
         
         presentViewController(facebookVC, animated: true, completion: nil)
     }

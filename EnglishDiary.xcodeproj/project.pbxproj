@@ -12,6 +12,7 @@
 		E93177EF1C85687D000F6E1F /* study.txt in Resources */ = {isa = PBXBuildFile; fileRef = E93177EE1C85687D000F6E1F /* study.txt */; };
 		E93177F31C8587BC000F6E1F /* 03.png in Resources */ = {isa = PBXBuildFile; fileRef = E93177F21C8587BC000F6E1F /* 03.png */; };
 		E93177F51C87FE25000F6E1F /* 02.png in Resources */ = {isa = PBXBuildFile; fileRef = E93177F41C87FE25000F6E1F /* 02.png */; };
+		E96CD0C81C96D15500C0ACA8 /* myTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96CD0C71C96D15500C0ACA8 /* myTableViewCell.swift */; };
 		E98D07F11C900E3F00B00B2C /* 04.png in Resources */ = {isa = PBXBuildFile; fileRef = E98D07F01C900E3F00B00B2C /* 04.png */; };
 		E9EC86131C782E4A009D9D97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EC86121C782E4A009D9D97 /* AppDelegate.swift */; };
 		E9EC86151C782E4A009D9D97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EC86141C782E4A009D9D97 /* ViewController.swift */; };
@@ -54,6 +55,7 @@
 		E93177EE1C85687D000F6E1F /* study.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = study.txt; sourceTree = "<group>"; };
 		E93177F21C8587BC000F6E1F /* 03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 03.png; sourceTree = "<group>"; };
 		E93177F41C87FE25000F6E1F /* 02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02.png; sourceTree = "<group>"; };
+		E96CD0C71C96D15500C0ACA8 /* myTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myTableViewCell.swift; sourceTree = "<group>"; };
 		E98D07F01C900E3F00B00B2C /* 04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 04.png; path = "../../../Documents/エンジニア留学(iOSまとめ)/iOS2016/EnglishDiary/EnglishDiary/04.png"; sourceTree = "<group>"; };
 		E9EC860F1C782E4A009D9D97 /* EnglishDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnglishDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9EC86121C782E4A009D9D97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				E98D07F01C900E3F00B00B2C /* 04.png */,
 				E9EC86121C782E4A009D9D97 /* AppDelegate.swift */,
 				E9EC86141C782E4A009D9D97 /* ViewController.swift */,
+				E96CD0C71C96D15500C0ACA8 /* myTableViewCell.swift */,
 				E9EC86431C7838B8009D9D97 /* FirstViewController.swift */,
 				E9EC86451C7838C5009D9D97 /* SecondViewController.swift */,
 				E9EC86471C7838F1009D9D97 /* ThirdViewController.swift */,
@@ -311,6 +314,7 @@
 				E9EC861B1C782E4A009D9D97 /* EnglishDiary.xcdatamodeld in Sources */,
 				E9EC87E41C79C396009D9D97 /* Data.swift in Sources */,
 				E9EC86151C782E4A009D9D97 /* ViewController.swift in Sources */,
+				E96CD0C81C96D15500C0ACA8 /* myTableViewCell.swift in Sources */,
 				E9EC86131C782E4A009D9D97 /* AppDelegate.swift in Sources */,
 				E9EC864A1C7838FE009D9D97 /* FourthViewController.swift in Sources */,
 				E9EC864C1C783917009D9D97 /* FifthViewController.swift in Sources */,
