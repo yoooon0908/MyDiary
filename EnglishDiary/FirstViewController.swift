@@ -15,8 +15,12 @@ class FirstViewController: UIViewController {
 
     
    
+    
+    @IBOutlet weak var firstTitle: UILabel!
+    @IBOutlet weak var firstDate: UILabel!
+    @IBOutlet weak var firstImage: UIImageView!
     @IBOutlet weak var myiAd: ADBannerView!
-       
+    
     //DBの名前
     let ENTITY_NAME = "Data"
     //txt1
