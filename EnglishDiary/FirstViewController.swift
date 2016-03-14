@@ -6,6 +6,7 @@
 //  Copyright © 2016年 Hiroyo Miura. All rights reserved.
 //
 
+import iAd
 import UIKit
 import CoreData
 
@@ -13,11 +14,9 @@ import CoreData
 class FirstViewController: UIViewController {
 
     
-    @IBOutlet weak var firstImage: UIImageView!
-    @IBOutlet weak var firstDate: UILabel!
-    @IBOutlet weak var firstTitle: UILabel!
-    
-    
+   
+    @IBOutlet weak var myiAd: ADBannerView!
+       
     //DBの名前
     let ENTITY_NAME = "Data"
     //txt1
@@ -38,7 +37,11 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-    
+        //広告
+        super.viewDidLoad()
+        self.canDisplayBannerAds = true
+        self.myiAd.hidden = true
+
         
     }
     
@@ -66,13 +69,13 @@ class FirstViewController: UIViewController {
                 print("READ DATE:\(txt3)")
                 print("READ IMAGE:\(txt4)")
                 
-//                for data in readData() {
-//                    
+
+                    //データを一覧表示させる
 //                    firstTitle.text = txt2
 //                    firstDate.text = txt3
 //                    firstImage.image = txt4
-//                    
-//                }
+                
+
 
                 
             }
@@ -89,4 +92,25 @@ class FirstViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
    
+    
+    
+    
+    //広告
+    //バナーに広告が表示された時
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        self.myiAd.hidden = false
+    }
+    
+    //バナーがクリックされた時
+    func bannerViewACtionShouldBegin(banner:ADBannerView!,wullLeaveApplication willLeave: Bool) ->Bool{
+        return willLeave
+    }
+    
+    //広告表示にエラーが発生した場合
+    func bannerView(banner:ADBannerView!, didFailToReceiveAdWithError error:NSError!) {
+        self.myiAd.hidden = true
+    }
+
+    
+    
 }

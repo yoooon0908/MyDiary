@@ -70,7 +70,7 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
             for data in jsonDictionaray {
                 var d1 = data["En"] as! String
                 
-                appDelegate.langEn = d1
+                
                 self.englist.append(data as! NSDictionary)
                 print(d1)
                 
@@ -83,8 +83,6 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
             for data in jsonDictionaray {
                 var d1 = data["En"] as! String
                 
-            
-                appDelegate.langEn = d1
                 self.englist.append(data as! NSDictionary)
                 print(d1)
                
@@ -97,18 +95,19 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
             for data in jsonDictionaray {
                 var d1 = data["En"] as! String
                 
-                appDelegate.langEn = d1
                 self.englist.append(data as! NSDictionary)
                 print(d1)
                 
             }
+            
+            
         }
     }
     
     
     // 選択された時に行う処理
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        appDelegate.langEn = englist[indexPath.row]["En"] as! String
         if appDelegate.edit == "" {
             //データを送る
             var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("welcome")

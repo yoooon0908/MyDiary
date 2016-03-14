@@ -36,6 +36,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var assetURL = ""
 
     
+    
     var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
     
@@ -212,7 +213,9 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBAction func tapFBBtn(sender: UIButton) {
         var facebookVC = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
         facebookVC.setInitialText(thContent.text)
-        //facebookVC.addImage(UIImage(named: "thImage"))
+        
+        //イメージが出ない
+        //facebookVC.addImage(UIImage(named: txt4 as! String))
         
         presentViewController(facebookVC, animated: true, completion: nil)
     }

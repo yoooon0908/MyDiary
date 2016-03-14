@@ -85,6 +85,9 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
                 print("INSERT TITLE: \(secTitle.text)")
                 print("INSERT DATE: \(secDate.text)")
                 print("INSERT IMAGE: \(secImageView.image)")
+            
+            appDelegate.texttmp = ""
+            appDelegate.langEn = ""
                 
                 do {
                     try context.save()
@@ -124,6 +127,7 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
                 print("READ TITLE:\(txt2)")
                 print("READ DATE:\(txt3)")
                 print("READ IMAGE:\(txt4)")
+                
                 
             }
         } catch let error as NSError {
