@@ -58,6 +58,8 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         request.returnsObjectsAsFaults = false
         
         do {
+            
+            
             let results : Array = try context.executeFetchRequest(request)
             if (results.count > 0 ) {
                 // 見つかったら読み込み
@@ -77,6 +79,8 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
 //                    firstTitle.text = txt2
 //                    firstDate.text = txt3
 //                    firstImage.image = txt4
+                
+             
                 
 
 
@@ -106,22 +110,22 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         
-        var txt2 = ""
-        var txt3 = ""
+        //データをもってくる
 //        var txt2 = ""
 //        var txt3 = ""
       
       
         var cell = tableView.dequeueReusableCellWithIdentifier("myCell3")! as UITableViewCell
+        
         //tag1 写真
-        //var firstImage = cell.viewWithTag(1) as! UIImage
-            //firstImage.image = txt4
+//        var firstImage = cell.viewWithTag(1) as! UIImage
+//            firstImage.image = image
         //tag2 Date
         var firstDate = cell.viewWithTag(2) as! UILabel
-            firstDate.text = txt3 as? String
+            //firstDate.text = "a"
         //tag3 Title
         var firstTitle = cell.viewWithTag(3) as! UILabel
-            firstTitle.text = txt2 as? String
+            //firstTitle.text = "\(indexPath.row)行目"
         
         
         return cell

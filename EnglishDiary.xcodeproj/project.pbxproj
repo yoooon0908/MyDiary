@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		E93177E81C8517D2000F6E1F /* 01.png in Resources */ = {isa = PBXBuildFile; fileRef = E93177E61C8517D2000F6E1F /* 01.png */; };
-		E93177ED1C856754000F6E1F /* trip.txt in Resources */ = {isa = PBXBuildFile; fileRef = E93177EC1C856754000F6E1F /* trip.txt */; };
-		E93177EF1C85687D000F6E1F /* study.txt in Resources */ = {isa = PBXBuildFile; fileRef = E93177EE1C85687D000F6E1F /* study.txt */; };
+		E93177EF1C85687D000F6E1F /* dream.txt in Resources */ = {isa = PBXBuildFile; fileRef = E93177EE1C85687D000F6E1F /* dream.txt */; };
 		E93177F31C8587BC000F6E1F /* 03.png in Resources */ = {isa = PBXBuildFile; fileRef = E93177F21C8587BC000F6E1F /* 03.png */; };
 		E93177F51C87FE25000F6E1F /* 02.png in Resources */ = {isa = PBXBuildFile; fileRef = E93177F41C87FE25000F6E1F /* 02.png */; };
 		E96CD0C81C96D15500C0ACA8 /* myTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96CD0C71C96D15500C0ACA8 /* myTableViewCell.swift */; };
 		E98D07F11C900E3F00B00B2C /* 04.png in Resources */ = {isa = PBXBuildFile; fileRef = E98D07F01C900E3F00B00B2C /* 04.png */; };
+		E9E347E41C97D19E004ABFFD /* housework.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E347E31C97D19E004ABFFD /* housework.txt */; };
+		E9E347E61C97D75B004ABFFD /* life.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E347E51C97D75B004ABFFD /* life.txt */; };
+		E9E347E81C97D783004ABFFD /* weather.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E347E71C97D783004ABFFD /* weather.txt */; };
 		E9EC86131C782E4A009D9D97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EC86121C782E4A009D9D97 /* AppDelegate.swift */; };
 		E9EC86151C782E4A009D9D97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EC86141C782E4A009D9D97 /* ViewController.swift */; };
 		E9EC86181C782E4A009D9D97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9EC86161C782E4A009D9D97 /* Main.storyboard */; };
@@ -27,7 +29,6 @@
 		E9EC86481C7838F1009D9D97 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EC86471C7838F1009D9D97 /* ThirdViewController.swift */; };
 		E9EC864A1C7838FE009D9D97 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EC86491C7838FE009D9D97 /* FourthViewController.swift */; };
 		E9EC864C1C783917009D9D97 /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EC864B1C783917009D9D97 /* FifthViewController.swift */; };
-		E9EC879B1C7995BA009D9D97 /* life.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9EC879A1C7995B9009D9D97 /* life.txt */; };
 		E9EC87E31C79C396009D9D97 /* Data+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EC87E11C79C396009D9D97 /* Data+CoreDataProperties.swift */; };
 		E9EC87E41C79C396009D9D97 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EC87E21C79C396009D9D97 /* Data.swift */; };
 /* End PBXBuildFile section */
@@ -51,12 +52,14 @@
 
 /* Begin PBXFileReference section */
 		E93177E61C8517D2000F6E1F /* 01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 01.png; sourceTree = "<group>"; };
-		E93177EC1C856754000F6E1F /* trip.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = trip.txt; sourceTree = "<group>"; };
-		E93177EE1C85687D000F6E1F /* study.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = study.txt; sourceTree = "<group>"; };
+		E93177EE1C85687D000F6E1F /* dream.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dream.txt; sourceTree = "<group>"; };
 		E93177F21C8587BC000F6E1F /* 03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 03.png; sourceTree = "<group>"; };
 		E93177F41C87FE25000F6E1F /* 02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02.png; sourceTree = "<group>"; };
 		E96CD0C71C96D15500C0ACA8 /* myTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myTableViewCell.swift; sourceTree = "<group>"; };
 		E98D07F01C900E3F00B00B2C /* 04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 04.png; path = "../../../Documents/エンジニア留学(iOSまとめ)/iOS2016/EnglishDiary/EnglishDiary/04.png"; sourceTree = "<group>"; };
+		E9E347E31C97D19E004ABFFD /* housework.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = housework.txt; sourceTree = "<group>"; };
+		E9E347E51C97D75B004ABFFD /* life.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = life.txt; sourceTree = "<group>"; };
+		E9E347E71C97D783004ABFFD /* weather.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = weather.txt; sourceTree = "<group>"; };
 		E9EC860F1C782E4A009D9D97 /* EnglishDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnglishDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9EC86121C782E4A009D9D97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9EC86141C782E4A009D9D97 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,7 +79,6 @@
 		E9EC86471C7838F1009D9D97 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		E9EC86491C7838FE009D9D97 /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		E9EC864B1C783917009D9D97 /* FifthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
-		E9EC879A1C7995B9009D9D97 /* life.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = life.txt; sourceTree = "<group>"; };
 		E9EC87E11C79C396009D9D97 /* Data+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Data+CoreDataProperties.swift"; path = "EnglishDiary/Data+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E9EC87E21C79C396009D9D97 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Data.swift; path = EnglishDiary/Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,9 +150,10 @@
 				E9EC861E1C782E4A009D9D97 /* LaunchScreen.storyboard */,
 				E9EC86211C782E4A009D9D97 /* Info.plist */,
 				E9EC86191C782E4A009D9D97 /* EnglishDiary.xcdatamodeld */,
-				E9EC879A1C7995B9009D9D97 /* life.txt */,
-				E93177EC1C856754000F6E1F /* trip.txt */,
-				E93177EE1C85687D000F6E1F /* study.txt */,
+				E93177EE1C85687D000F6E1F /* dream.txt */,
+				E9E347E31C97D19E004ABFFD /* housework.txt */,
+				E9E347E51C97D75B004ABFFD /* life.txt */,
+				E9E347E71C97D783004ABFFD /* weather.txt */,
 			);
 			path = EnglishDiary;
 			sourceTree = "<group>";
@@ -277,15 +280,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E93177ED1C856754000F6E1F /* trip.txt in Resources */,
-				E93177EF1C85687D000F6E1F /* study.txt in Resources */,
+				E9E347E41C97D19E004ABFFD /* housework.txt in Resources */,
+				E9E347E81C97D783004ABFFD /* weather.txt in Resources */,
+				E93177EF1C85687D000F6E1F /* dream.txt in Resources */,
 				E9EC86201C782E4A009D9D97 /* LaunchScreen.storyboard in Resources */,
 				E9EC861D1C782E4A009D9D97 /* Assets.xcassets in Resources */,
 				E9EC86181C782E4A009D9D97 /* Main.storyboard in Resources */,
 				E98D07F11C900E3F00B00B2C /* 04.png in Resources */,
-				E9EC879B1C7995BA009D9D97 /* life.txt in Resources */,
 				E93177F31C8587BC000F6E1F /* 03.png in Resources */,
 				E93177E81C8517D2000F6E1F /* 01.png in Resources */,
+				E9E347E61C97D75B004ABFFD /* life.txt in Resources */,
 				E93177F51C87FE25000F6E1F /* 02.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

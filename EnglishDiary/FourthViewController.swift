@@ -14,7 +14,7 @@ class FourthViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var foTableView: UITableView!
     
     
-    var main = ["Life","Study","Trip"]
+    var main = ["Life","Weather","Dream","Housework"]
     var select = -1
     
 
@@ -41,7 +41,7 @@ class FourthViewController: UIViewController, UITableViewDataSource, UITableView
         cell.backgroundColor = UIColor.clearColor()
         // 選択された時の背景色
         var cellSelectedBgView = UIView()
-        cellSelectedBgView.backgroundColor =  UIColor(red: 1.0, green: 0, blue: 1.0, alpha: 0.2)
+        cellSelectedBgView.backgroundColor =  UIColor(red: 0, green: 1, blue: 0.5, alpha: 0.2)
         cell.selectedBackgroundView = cellSelectedBgView
         
         return cell

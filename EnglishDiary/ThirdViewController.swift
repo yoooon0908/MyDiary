@@ -66,7 +66,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
     
     
-    // データ登録/更新
+    // データ更新
     func writeData() -> Bool{
         var ret = false
         
@@ -103,21 +103,6 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 appDelegate.saveContext()
                 ret = true
                 
-            }else{
-                // 見つからなかったら新規登録
-                let entity: NSEntityDescription! = NSEntityDescription.entityForName(ENTITY_NAME, inManagedObjectContext: context)
-                let obj = Data(entity: entity, insertIntoManagedObjectContext: context)
-                
-                obj.setValue(thContent.text, forKey: "content")
-                obj.setValue(thTitle.text, forKey: "title")
-                obj.setValue(df.dateFromString(thDate.text!), forKey: "date")
-                obj.setValue(assetURL, forKey: "image")
-                
-                print("INSERT CONTENT: \(thContent.text)")
-                print("INSERT TITLE: \(thTitle.text)")
-                print("INSERT DATE: \(thDate.text)")
-                print("INSERT IMAGE: \(thImage.image)")
-                
                 do {
                     try context.save()
                 } catch let error as NSError {
@@ -126,6 +111,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 }
                 ret = true
             }
+            
         } catch let error as NSError {
             // エラー処理
             print("FETCH ERROR:\(error.localizedDescription)")
@@ -153,6 +139,8 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 let txt3 = obj.valueForKey(ITEM_NAME3) as! NSDate
                 let txt4 = obj.valueForKey(ITEM_NAME4) as! String
                 
+                
+                //thImage.image = txt4
                 print("READ CONTENT:\(txt1)")
                 print("READ TITLE:\(txt2)")
                 print("READ DATE:\(txt3)")

@@ -1,0 +1,16 @@
+[
+{"En":"I had to clean my room myself.","Ja":"自分の部屋を自分で掃除しなければならなかった。"},
+{"En":"I needed to clean the room from top to bottom.","Ja":"部屋を隅々まで掃除しなければいけなかった。"},
+{"En":"I cleaned up the mess.","Ja":"散らかしたものをきえいに片付けた。"},
+{"En":"I got rid of the unneccessary things.","Ja":"必要ないものをきれいに片付けた。"},
+{"En":"I tidied up the room.","Ja":"部屋を整頓した。"},
+{"En":"I set the room in order.","Ja":"部屋をきちんと整えた。"},
+{"En":"I arranged the books that were scattered.","Ja":"散らかった本をきちんと片付けた。"},
+{"En":"I put the books back.","Ja":"本を元の位置に戻した。"},
+{"En":"I put the toys away.","Ja":"おもちゃを片付けた。"},
+{"En":"I put the dirty clothes in the laundry basket.","Ja":"汚い服を洗濯かごに入れた。"},
+{"En":"I got my house in shipshape.","Ja":"家の中をきれいに片付けた。"},
+{"En":"I decided to clean up the room.","Ja":"部屋をきれいにしようと決心した。"},
+{"En":"I swept the room with the broom.","Ja":"ほうきで部屋を掃いた。"},
+{"En":"I used the vacuum cleaner.","Ja":"掃除機を使った。"}
+]

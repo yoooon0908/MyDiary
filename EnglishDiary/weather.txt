@@ -1,0 +1,21 @@
+[
+{"En":"It was fine today.","Ja":"今日はいい天気だった。"},
+{"En":"It was cold asd windy.","Ja":"寒くて風が強かった。"},
+{"En":"It was sunny.","Ja":"晴れだった。"},
+{"En":"It was cloudy.","Ja":"曇りだった"},
+{"En":"The weather was nice today.","Ja":"今日はいい天気だった。"},
+{"En":"It was a really nice day today.","Ja":"今日は本当にいい天気だった。"},
+{"En":"There wasn't a single cloud in the clear,blue sky.","Ja":"雲ひとつないいい天気だった。"},
+{"En":"The weather was refreshing.","Ja":"さわやかな天気だった。"},
+{"En":"It was the first clear day in three days.","Ja":"３日ぶりに晴れた。"},
+{"En":"After the typhoon passed, it was a nice autumn day.","Ja":"台風一過の秋晴れだった。"},
+{"En":"It has been cloudy for several days now.","Ja":"曇りの日が続くなあ。"},
+{"En":"The sky was full of clouds.","Ja":"空に雲が立ち込めてきた。"},
+{"En":"It got cloudy in the afternoon.","Ja":"午後から雲が出てきた。"},
+{"En":"It was rainy again today.","Ja":"今日もまた雨だった。"},
+{"En":"It poured in the afternoon.","Ja":"午後はどしゃ振りだった。"},
+{"En":"It was really hot outside.","Ja":"外はとても暑かったです。"},
+{"En":"We had a heavy rain last night.","Ja":"昨晩は激しい雨が降りました。"},
+{"En":"There was a heavy rain last night.","Ja":"昨晩は激しい雨が降りました。"},
+{"En":"Our vacation was ruined by the bad weather.","Ja":"悪天候で休日がだいなしになった。"}
+]

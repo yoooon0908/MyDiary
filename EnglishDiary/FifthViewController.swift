@@ -53,7 +53,7 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.backgroundColor = UIColor.clearColor()
         // 選択された時の背景色
         var cellSelectedBgView = UIView()
-        cellSelectedBgView.backgroundColor =  UIColor(red: 1.0, green: 0, blue: 1.0, alpha: 0.2)
+        cellSelectedBgView.backgroundColor =  UIColor(red: 0, green: 1, blue: 0.5, alpha: 0.2)
         cell.selectedBackgroundView = cellSelectedBgView
         
         return cell
@@ -76,7 +76,7 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
             }
         }else if fifSelect == 1 {
-            var path = NSBundle.mainBundle().pathForResource("study", ofType: "txt")
+            var path = NSBundle.mainBundle().pathForResource("weather", ofType: "txt")
             var jsondata = NSData(contentsOfFile: path!)
             let jsonDictionaray = (try! NSJSONSerialization.JSONObjectWithData(jsondata!, options: [])) as! NSArray
         
@@ -88,7 +88,7 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
                
             }
         }else if fifSelect == 2 {
-            var path = NSBundle.mainBundle().pathForResource("trip", ofType: "txt")
+            var path = NSBundle.mainBundle().pathForResource("dream", ofType: "txt")
             var jsondata = NSData(contentsOfFile: path!)
             let jsonDictionaray = (try! NSJSONSerialization.JSONObjectWithData(jsondata!, options: [])) as! NSArray
             
@@ -97,10 +97,18 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
                 self.englist.append(data as! NSDictionary)
                 print(d1)
-                
             }
+        }else if fifSelect == 3 {
+            var path = NSBundle.mainBundle().pathForResource("housework", ofType: "txt")
+            var jsondata = NSData(contentsOfFile: path!)
+            let jsonDictionaray = (try! NSJSONSerialization.JSONObjectWithData(jsondata!, options: [])) as! NSArray
             
-            
+            for data in jsonDictionaray {
+                var d1 = data["En"] as! String
+                
+                self.englist.append(data as! NSDictionary)
+                print(d1)
+            }
         }
     }
     

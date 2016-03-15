@@ -1,0 +1,5 @@
+[
+{"En":"I want to make a lot of money and become a millionaire.","Ja":"お金をたくさん稼いで、億万長者になりたい。"},
+{"En":"I hope my family get in shape and work hard.","Ja":"家族が元気で過ごせるといいと思いました。"},
+{"En":"My dream is to travel around the world.","Ja":"私の夢は世界一周旅行をすることだ。"}
+]
