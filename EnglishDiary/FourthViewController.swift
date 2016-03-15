@@ -6,21 +6,28 @@
 //  Copyright © 2016年 Hiroyo Miura. All rights reserved.
 //
 import UIKit
+import iAd
 
 
 class FourthViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
     
+    @IBOutlet var myAd: ADBannerView!
     @IBOutlet weak var foTableView: UITableView!
     
     
-    var main = ["Life","Weather","Dream","Housework"]
+    var main = ["Life","Weather","Dream","Housework","Feeling"]
     var select = -1
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //広告
+        super.viewDidLoad()
+        self.canDisplayBannerAds = true
+        self.myAd.hidden = true
+
     }
     
     //行数
@@ -64,5 +71,23 @@ class FourthViewController: UIViewController, UITableViewDataSource, UITableView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    //広告
+    //バナーに広告が表示された時
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        self.myAd.hidden = false
+    }
+    
+    //バナーがクリックされた時
+    func bannerViewACtionShouldBegin(banner:ADBannerView!,wullLeaveApplication willLeave: Bool) ->Bool{
+        return willLeave
+    }
+    
+    //広告表示にエラーが発生した場合
+    func bannerView(banner:ADBannerView!, didFailToReceiveAdWithError error:NSError!) {
+        self.myAd.hidden = true
+    }
+
 
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2016年 Hiroyo Miura. All rights reserved.
 //
 
-
+import iAd
 import UIKit
 import Social
 import CoreData
@@ -20,6 +20,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var thImage: UIImageView!
     @IBOutlet weak var thContent: UITextView!
     @IBOutlet weak var FBBtn: UIButton!
+    @IBOutlet var myiAd: ADBannerView!
   
     
     //DBの名前
@@ -45,6 +46,12 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
         super.viewDidLoad()
         
+        
+        //広告
+        super.viewDidLoad()
+        self.canDisplayBannerAds = true
+        self.myiAd.hidden = true
+
         
         appDelegate.edit = "edit"
         readData()
@@ -289,4 +296,23 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
    
     
+    
+    //広告
+    //バナーに広告が表示された時
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        self.myiAd.hidden = false
+    }
+    
+    //バナーがクリックされた時
+    func bannerViewACtionShouldBegin(banner:ADBannerView!,wullLeaveApplication willLeave: Bool) ->Bool{
+        return willLeave
+    }
+    
+    //広告表示にエラーが発生した場合
+    func bannerView(banner:ADBannerView!, didFailToReceiveAdWithError error:NSError!) {
+        self.myiAd.hidden = true
+    }
+    
+    
+
 }

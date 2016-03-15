@@ -13,6 +13,7 @@
 {"En":"The sky was full of clouds.","Ja":"空に雲が立ち込めてきた。"},
 {"En":"It got cloudy in the afternoon.","Ja":"午後から雲が出てきた。"},
 {"En":"It was rainy again today.","Ja":"今日もまた雨だった。"},
+{"En":"The moon was so bright.","Ja":"月がとても輝いていた。"},
 {"En":"It poured in the afternoon.","Ja":"午後はどしゃ振りだった。"},
 {"En":"It was really hot outside.","Ja":"外はとても暑かったです。"},
 {"En":"We had a heavy rain last night.","Ja":"昨晩は激しい雨が降りました。"},

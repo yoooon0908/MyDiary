@@ -6,12 +6,14 @@
 //  Copyright © 2016年 Hiroyo Miura. All rights reserved.
 //
 
+import iAd
 import UIKit
 
 class FifthViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
     var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
+    @IBOutlet var myiAd: ADBannerView!
     @IBOutlet weak var fifTableView: UITableView!
     
     //気分をリストで表示できるようにする
@@ -25,7 +27,12 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        //広告
+        super.viewDidLoad()
+        self.canDisplayBannerAds = true
+        self.myiAd.hidden = true
+    
+        
     }
     
     
@@ -38,8 +45,8 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->UITableViewCell{
         var cell = UITableViewCell(style: .Default, reuseIdentifier: "myCell2")
         
-        
-//        cell.textLabel!.text = "\(englist[indexPath.row]["En"])" + "\(englist[indexPath.row]["Ja"])"
+      
+
          cell.textLabel!.text = "\(englist[indexPath.row]["En"] as! String)"
         
         
@@ -61,6 +68,7 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewWillAppear(animated: Bool) {
         //json.txtファイルを読み込んで
+        
         
         if fifSelect == 0 {
             var path = NSBundle.mainBundle().pathForResource("life", ofType: "txt")
@@ -109,6 +117,17 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.englist.append(data as! NSDictionary)
                 print(d1)
             }
+        }else if fifSelect == 4 {
+            var path = NSBundle.mainBundle().pathForResource("feeling", ofType: "txt")
+            var jsondata = NSData(contentsOfFile: path!)
+            let jsonDictionaray = (try! NSJSONSerialization.JSONObjectWithData(jsondata!, options: [])) as! NSArray
+            
+            for data in jsonDictionaray {
+                var d1 = data["En"] as! String
+                
+                self.englist.append(data as! NSDictionary)
+                print(d1)
+            }
         }
     }
     
@@ -133,6 +152,24 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    //広告
+    //バナーに広告が表示された時
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        self.myiAd.hidden = false
+    }
+    
+    //バナーがクリックされた時
+    func bannerViewACtionShouldBegin(banner:ADBannerView!,wullLeaveApplication willLeave: Bool) ->Bool{
+        return willLeave
+    }
+    
+    //広告表示にエラーが発生した場合
+    func bannerView(banner:ADBannerView!, didFailToReceiveAdWithError error:NSError!) {
+        self.myiAd.hidden = true
+    }
+
     
     
 }

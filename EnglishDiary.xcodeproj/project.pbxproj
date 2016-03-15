@@ -16,6 +16,7 @@
 		E9E347E41C97D19E004ABFFD /* housework.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E347E31C97D19E004ABFFD /* housework.txt */; };
 		E9E347E61C97D75B004ABFFD /* life.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E347E51C97D75B004ABFFD /* life.txt */; };
 		E9E347E81C97D783004ABFFD /* weather.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E347E71C97D783004ABFFD /* weather.txt */; };
+		E9E347EA1C97DF86004ABFFD /* feeling.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E347E91C97DF86004ABFFD /* feeling.txt */; };
 		E9EC86131C782E4A009D9D97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EC86121C782E4A009D9D97 /* AppDelegate.swift */; };
 		E9EC86151C782E4A009D9D97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EC86141C782E4A009D9D97 /* ViewController.swift */; };
 		E9EC86181C782E4A009D9D97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9EC86161C782E4A009D9D97 /* Main.storyboard */; };
@@ -60,6 +61,7 @@
 		E9E347E31C97D19E004ABFFD /* housework.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = housework.txt; sourceTree = "<group>"; };
 		E9E347E51C97D75B004ABFFD /* life.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = life.txt; sourceTree = "<group>"; };
 		E9E347E71C97D783004ABFFD /* weather.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = weather.txt; sourceTree = "<group>"; };
+		E9E347E91C97DF86004ABFFD /* feeling.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = feeling.txt; sourceTree = "<group>"; };
 		E9EC860F1C782E4A009D9D97 /* EnglishDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnglishDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9EC86121C782E4A009D9D97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9EC86141C782E4A009D9D97 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				E9E347E31C97D19E004ABFFD /* housework.txt */,
 				E9E347E51C97D75B004ABFFD /* life.txt */,
 				E9E347E71C97D783004ABFFD /* weather.txt */,
+				E9E347E91C97DF86004ABFFD /* feeling.txt */,
 			);
 			path = EnglishDiary;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				E9EC861D1C782E4A009D9D97 /* Assets.xcassets in Resources */,
 				E9EC86181C782E4A009D9D97 /* Main.storyboard in Resources */,
 				E98D07F11C900E3F00B00B2C /* 04.png in Resources */,
+				E9E347EA1C97DF86004ABFFD /* feeling.txt in Resources */,
 				E93177F31C8587BC000F6E1F /* 03.png in Resources */,
 				E93177E81C8517D2000F6E1F /* 01.png in Resources */,
 				E9E347E61C97D75B004ABFFD /* life.txt in Resources */,

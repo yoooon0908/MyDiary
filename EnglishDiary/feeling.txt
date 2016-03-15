@@ -1,0 +1,21 @@
+[
+{"En":"I was tired because I was feeling nervous at work all day.","Ja":"一日中仕事をしているから、とても疲れました。"},
+{"En":"I felt very unhappy working alone inside the house.","Ja":"ひとりで家で仕事をしていて楽しくありませんでした。"},
+{"En":"I want to get up late tomorrow.","Ja":"明日はゆっくり寝ていたい。"},
+{"En":"I had many things to do today.","Ja":"今日はやることがとても多かった。"},
+{"En":"I have had a really busy day today.","Ja":"今日は本当に忙しかった。"},
+{"En":"I didn't know the time of the day.","Ja":"時間が過ぎるのも忘れていた。"},
+{"En":"I was busy doing nothing.","Ja":"何もしないでぼーっとしていた。"},
+{"En":"I was so embarrassed today.","Ja":"私は今日はとても恥ずかしい思いをした。"},
+{"En":"I had a really stressed out.","Ja":"今日は本当にへとへとだった。"},
+{"En":"I was so happy that I was speechless.","Ja":"あまりのうれしさに言葉を失った。"},
+{"En":"I have a cold and sore throat.","Ja":"風邪をひいて喉が痛いです。"},
+{"En":"I went to the fireworks display last night. I enjoyed it very much.","Ja":"昨夜花火大会に行きました。とても楽しかったです。"},
+{"En":"I very hard to wake up at six o'clock","Ja":"６時に起きるのは、大変です。"},
+{"En":"My eyelids are heavy and I am very sleepy,","Ja":"まぶたが重たく、とても眠たい。"},
+{"En":"I fell asleep listening to music.","Ja":"音楽を聞きながら寝入った。"},
+{"En":"I slept well.","Ja":"よく寝た。"},
+{"En":"I felt great today.","Ja":"今日はとてもいい気分だった。"},
+{"En":"I finished the day well.","Ja":"いい1日を終えた。"},
+{"En":"I felt like crying.","Ja":"泣きたかった。"}
+]

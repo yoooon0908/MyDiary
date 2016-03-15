@@ -5,6 +5,8 @@
 //  Created by 三浦宏予 on 2016/02/20.
 //  Copyright © 2016年 Hiroyo Miura. All rights reserved.
 //
+
+import iAd
 import UIKit
 import CoreData
 import Photos
@@ -30,6 +32,7 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     
     var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
+    @IBOutlet weak var myiAd: ADBannerView!
     @IBOutlet weak var secDate: UITextField!
     @IBOutlet weak var secTitle: UITextField!
     @IBOutlet weak var secImageView: UIImageView!
@@ -40,6 +43,12 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         
         appDelegate.edit = ""
         readData()
+        
+        //広告
+        super.viewDidLoad()
+        self.canDisplayBannerAds = true
+        self.myiAd.hidden = true
+
         
         //        //ファイルの場所を探せる↓
         //#if DEBUG
@@ -254,6 +263,25 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         picker.dismissViewControllerAnimated(true, completion: nil)
         
     }
+    
+    
+    
+    //広告
+    //バナーに広告が表示された時
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        self.myiAd.hidden = false
+    }
+    
+    //バナーがクリックされた時
+    func bannerViewACtionShouldBegin(banner:ADBannerView!,wullLeaveApplication willLeave: Bool) ->Bool{
+        return willLeave
+    }
+    
+    //広告表示にエラーが発生した場合
+    func bannerView(banner:ADBannerView!, didFailToReceiveAdWithError error:NSError!) {
+        self.myiAd.hidden = true
+    }
+    
     
 
 }

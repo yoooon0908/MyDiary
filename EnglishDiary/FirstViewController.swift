@@ -16,6 +16,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
    
     
+    var diaryList:NSArray = []
     
   
     @IBOutlet weak var myiAd: ADBannerView!
@@ -44,7 +45,8 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         self.canDisplayBannerAds = true
         self.myiAd.hidden = true
-
+        
+        readData()
         
     }
     
@@ -62,6 +64,10 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             let results : Array = try context.executeFetchRequest(request)
             if (results.count > 0 ) {
+
+                
+                  diaryList = results
+                
                 // 見つかったら読み込み
                 let obj = results[0] as! NSManagedObject
                 let txt1 = obj.valueForKey(ITEM_NAME1) as! String
@@ -73,14 +79,6 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
                 print("READ TITLE:\(txt2)")
                 print("READ DATE:\(txt3)")
                 print("READ IMAGE:\(txt4)")
-                
-
-                    //データを一覧表示させる
-//                    firstTitle.text = txt2
-//                    firstDate.text = txt3
-//                    firstImage.image = txt4
-                
-             
                 
 
 
@@ -103,12 +101,13 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     //行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return diaryList.count
     }
     
     //表示するセル
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+         let obj = diaryList[indexPath.row] as! NSManagedObject
         
         //データをもってくる
 //        var txt2 = ""
@@ -117,15 +116,19 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
       
         var cell = tableView.dequeueReusableCellWithIdentifier("myCell3")! as UITableViewCell
         
+        
         //tag1 写真
 //        var firstImage = cell.viewWithTag(1) as! UIImage
-//            firstImage.image = image
+//        firstImage.image = obj.valueForKey(ITEM_NAME4) as! String
+//
         //tag2 Date
-        var firstDate = cell.viewWithTag(2) as! UILabel
-            //firstDate.text = "a"
+//        var firstDate = cell.viewWithTag(2) as! UILabel
+//            firstDate.text = obj.valueForKey(ITEM_NAME3) as! String
+
         //tag3 Title
         var firstTitle = cell.viewWithTag(3) as! UILabel
-            //firstTitle.text = "\(indexPath.row)行目"
+            firstTitle.text = obj.valueForKey(ITEM_NAME2) as! String
+        
         
         
         return cell
