@@ -42,9 +42,13 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
     
     override func viewDidLoad() {
-        
-
         super.viewDidLoad()
+        
+        
+//        thTitle.text
+//        thDate.text
+//        thContent.text
+//        thImage.image 
         
         
         //広告
@@ -209,7 +213,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         var facebookVC = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
         facebookVC.setInitialText(thContent.text)
         
-        //イメージが出ない
+        
         facebookVC.addImage(thImage.image)
         
         presentViewController(facebookVC, animated: true, completion: nil)

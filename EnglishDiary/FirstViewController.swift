@@ -9,6 +9,7 @@
 import iAd
 import UIKit
 import CoreData
+import Photos
 
 
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -115,15 +116,34 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         let df = NSDateFormatter()
         df.dateFormat = "yyyy/MM/dd"
 
+        
+            var myImage = obj.valueForKey(ITEM_NAME4)
+        
+            let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs([myImage], options: nil)
+            let asset: PHAsset = fetchResult.firstObject as! PHAsset
+            let manager: PHImageManager = PHImageManager()
+            manager.requestImageForAsset(asset,
+                targetSize: CGSizeMake(100, 100),
+                contentMode: .AspectFill,
+                options: nil) { (image, info) -> Void in
+                    
                 
+                    //firstImage = image
+            }
+            
+            
+        
+
+        
         //tag1 写真
-//        var firstImage = cell.viewWithTag(1) as! UIImage
-//        firstImage.image = obj.valueForKey(ITEM_NAME4) as! String
+        var firstImage = cell.viewWithTag(1) as! UIImage
+            self.firstImage.image = UIImage(obj.valueForKey(ITEM_NAME4) as! String)
 
         //tag2 Date
         var firstDate = cell.viewWithTag(2) as! UILabel
-            //df.dateFromString(firstDate.text!) = obj.valueForKey(ITEM_NAME3) as! String
-        
+            df.dateFromString(firstDate.text!)
+            //firstDate.text = obj.valueForKey(ITEM_NAME3) as! String
+            firstDate.text = df.stringFromDate(obj.valueForKey(ITEM_NAME3) as! NSDate)
 
         //tag3 Title
         var firstTitle = cell.viewWithTag(3) as! UILabel
