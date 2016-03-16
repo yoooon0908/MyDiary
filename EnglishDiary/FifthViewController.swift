@@ -43,13 +43,14 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     //表示するセルの中身2
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->UITableViewCell{
-        var cell = UITableViewCell(style: .Default, reuseIdentifier: "myCell2")
         
-      
+        var cell = UITableViewCell(style: .Default, reuseIdentifier: "myCell2")
 
          cell.textLabel!.text = "\(englist[indexPath.row]["En"] as! String)"
         
-        
+        //改行
+        cell.textLabel!.numberOfLines  = 0
+        cell.textLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
         //文字色
         cell.textLabel!.textColor = UIColor.whiteColor()
         //ボールド
@@ -65,6 +66,8 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         return cell
     }
+    
+    
     
     override func viewWillAppear(animated: Bool) {
         //json.txtファイルを読み込んで

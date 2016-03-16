@@ -14,7 +14,7 @@ import CoreData
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     
-   
+   var firstIndex = ""
     
     var diaryList:NSArray = []
     
@@ -64,7 +64,8 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             let results : Array = try context.executeFetchRequest(request)
             if (results.count > 0 ) {
-
+                
+                
                 
                   diaryList = results
                 
@@ -108,22 +109,21 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
          let obj = diaryList[indexPath.row] as! NSManagedObject
-        
-        //データをもってくる
-//        var txt2 = ""
-//        var txt3 = ""
-      
       
         var cell = tableView.dequeueReusableCellWithIdentifier("myCell3")! as UITableViewCell
         
-        
+        let df = NSDateFormatter()
+        df.dateFormat = "yyyy/MM/dd"
+
+                
         //tag1 写真
 //        var firstImage = cell.viewWithTag(1) as! UIImage
 //        firstImage.image = obj.valueForKey(ITEM_NAME4) as! String
-//
+
         //tag2 Date
-//        var firstDate = cell.viewWithTag(2) as! UILabel
-//            firstDate.text = obj.valueForKey(ITEM_NAME3) as! String
+        var firstDate = cell.viewWithTag(2) as! UILabel
+            //df.dateFromString(firstDate.text!) = obj.valueForKey(ITEM_NAME3) as! String
+        
 
         //tag3 Title
         var firstTitle = cell.viewWithTag(3) as! UILabel
@@ -134,19 +134,17 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
+     // 選択された時に行う処理
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("\(indexPath.row)行目を選択")
-        //select = indexPath.row
+        //firstIndex = indexPath.row
         performSegueWithIdentifier("show1",sender: nil)
     }
 
+   
+
     
-    
-    
-    
-    
-    
-    //広告
+       //広告
     //バナーに広告が表示された時
     func bannerViewDidLoadAd(banner: ADBannerView!) {
         self.myiAd.hidden = false

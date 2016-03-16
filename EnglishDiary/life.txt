@@ -21,8 +21,7 @@
 {"En":"I won't forget today's incident.","Ja":"今日の出来事は忘れられないだろう。"},
 {"En":"I went to bed until after midnight.","Ja":"夕食を食べずに寝た。"},
 {"En":"I don't keep late hours.","Ja":"私は夜更かしをしない。"},
-{"En":"I had a sleepless night.","Ja":""},
-{"En":"","Ja":"眠れない夜を過ごした。"},
+{"En":"I had a sleepless night.","Ja":"眠れない夜を過ごした。"},
 {"En":"I came home late at night, so I was scolded by my parents.","Ja":"夜遅くに家に帰ったので、両親に叱られた。"},
 {"En":"I tooka hip bath for health.","Ja":"健康のために半身浴をした。"},
 {"En":"I had a sad incident today.","Ja":"今日悲しい出来事があった。"}
