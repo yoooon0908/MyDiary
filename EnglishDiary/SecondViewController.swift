@@ -152,6 +152,12 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     
     
     @IBAction func tapSave(sender: UIButton) {
+        
+        //画面を保存したタイミングでユーザーデフォルトを削除する
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        var appDomain:String = NSBundle.mainBundle().bundleIdentifier!; NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain)
+        
+        
         let df = NSDateFormatter()
         df.dateFormat = "yyyy/MM/dd"
       

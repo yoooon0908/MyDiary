@@ -139,35 +139,35 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 
                 
                 //表示
-//                thContent.text = obj.valueForKey(ITEM_NAME1)![thirdIndex] as! String
-//                thTitle.text = obj.valueForKey(ITEM_NAME2)![thirdIndex] as! String
-//                thDate.text = df.stringFromDate(obj.valueForKey(ITEM_NAME3)![thirdIndex] as! NSDate)
-//                
-//                
-//                var myDefault = NSUserDefaults.standardUserDefaults()
-//                
-//                
-//                if (myDefault.objectForKey("NAME") != nil){
-//                    var myStr:String = myDefault.objectForKey("NAME")! as! String
-//                    
-//                    
-//                    var assetURL = NSURL(string: myStr as! String)!
-//                    
-//                    
-//                    
-//                    let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs([assetURL], options: nil)
-//                    let asset: PHAsset = fetchResult.firstObject as! PHAsset
-//                    let manager: PHImageManager = PHImageManager()
-//                    manager.requestImageForAsset(asset,
-//                        targetSize: CGSizeMake(100, 100),
-//                        contentMode: .AspectFill,
-//                        options: nil) { (image, info) -> Void in
-//                            
-//                            self.thImage.image = image
-//                    }
-//                    
-//                }
-//                
+                thContent.text = obj.valueForKey(ITEM_NAME1)![thirdIndex] as! String
+                thTitle.text = obj.valueForKey(ITEM_NAME2)![thirdIndex] as! String
+                thDate.text = df.stringFromDate(obj.valueForKey(ITEM_NAME3)![thirdIndex] as! NSDate)
+                
+                
+                var myDefault = NSUserDefaults.standardUserDefaults()
+                
+                
+                if (myDefault.objectForKey("NAME") != nil){
+                    var myStr:String = myDefault.objectForKey("NAME")! as! String
+                    
+                    
+                    var assetURL = NSURL(string: myStr as! String)!
+                    
+                    
+                    
+                    let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs([assetURL], options: nil)
+                    let asset: PHAsset = fetchResult.firstObject as! PHAsset
+                    let manager: PHImageManager = PHImageManager()
+                    manager.requestImageForAsset(asset,
+                        targetSize: CGSizeMake(100, 100),
+                        contentMode: .AspectFill,
+                        options: nil) { (image, info) -> Void in
+                            
+                            self.thImage.image = image
+                    }
+                    
+                }
+                
                 print("READ CONTENT:\(txt1)")
                 print("READ TITLE:\(txt2)")
                 print("READ DATE:\(txt3)")
