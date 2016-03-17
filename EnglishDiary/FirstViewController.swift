@@ -111,12 +111,19 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     //表示するセル
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        
+        
+
         let obj = diaryList[indexPath.row] as! NSManagedObject
       
         var cell = tableView.dequeueReusableCellWithIdentifier("myCell3")! as UITableViewCell
         
         let df = NSDateFormatter()
-        df.dateFormat = "yyyy/MM/dd"
+            df.dateFormat = "yyyy/MM/dd"
+        
+        
+        //データを送る
+        cell.tag = indexPath.row
         
         //改行
         cell.textLabel!.numberOfLines  = 0
@@ -174,26 +181,15 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     // Segueで画面遷移する時
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        
-        
-        //var selectedTableViewCell:UITableViewCell = UITableViewCell(sender)
-        
-//            if let cell = sender as? UITableViewCell {
-//                let i = redditListTableView.indexPathForCell(cell)!.row
-//                if segue.identifier == "show1" {
-//                    let thirdVC = segue.destinationViewController as! ThirdViewController
-//
-//                    thirdVC.thirdIndex = firstIndex[i] as NSDictionary
-//                }
-        
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if ((sender?.tag) != nil) {
+//            let thVC = segue.destinationViewController as! ThirdViewController
+//                thVC.thirdIndex = self.firstIndex[(sender?.tag)!]
+//            
 //        }
-        
-        //var thirdVC = segue.destinationViewController as! ThirdViewController
-        
-        //thirdVC.thirdIndex = firstIndex
-    }
+//
+//    }
 
 
    
