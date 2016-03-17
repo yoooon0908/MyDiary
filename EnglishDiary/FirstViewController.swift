@@ -19,6 +19,8 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     var diaryList:NSArray = []
     
+
+    
   
     @IBOutlet weak var myiAd: ADBannerView!
     
@@ -173,9 +175,24 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     // Segueで画面遷移する時
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var thirdVC = segue.destinationViewController as! ThirdViewController
         
-        thirdVC.thirdIndex = firstIndex
+        
+        
+        //var selectedTableViewCell:UITableViewCell = UITableViewCell(sender)
+        
+//            if let cell = sender as? UITableViewCell {
+//                let i = redditListTableView.indexPathForCell(cell)!.row
+//                if segue.identifier == "show1" {
+//                    let thirdVC = segue.destinationViewController as! ThirdViewController
+//
+//                    thirdVC.thirdIndex = firstIndex[i] as NSDictionary
+//                }
+        
+//        }
+        
+        //var thirdVC = segue.destinationViewController as! ThirdViewController
+        
+        //thirdVC.thirdIndex = firstIndex
     }
 
 

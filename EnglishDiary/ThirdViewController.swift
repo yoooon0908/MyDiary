@@ -131,7 +131,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 df.dateFormat = "yyyy/MM/dd"
                 
                 
-                let obj = results[0] as! NSManagedObject
+                let obj = results[thirdIndex] as! NSManagedObject
                 let txt1 = obj.valueForKey(ITEM_NAME1) as! String
                 let txt2 = obj.valueForKey(ITEM_NAME2) as! String
                 let txt3 = obj.valueForKey(ITEM_NAME3) as! NSDate
