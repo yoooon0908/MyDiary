@@ -15,7 +15,7 @@ import Photos
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     
-   var firstIndex = ""
+   var firstIndex = -1
     
     var diaryList:NSArray = []
     
@@ -109,16 +109,31 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     //表示するセル
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-         let obj = diaryList[indexPath.row] as! NSManagedObject
+        let obj = diaryList[indexPath.row] as! NSManagedObject
       
         var cell = tableView.dequeueReusableCellWithIdentifier("myCell3")! as UITableViewCell
         
         let df = NSDateFormatter()
         df.dateFormat = "yyyy/MM/dd"
+        
+        //改行
+        cell.textLabel!.numberOfLines  = 0
+        cell.textLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
 
+
+        // 選択された時の背景色
+        var cellSelectedBgView = UIView()
+        cellSelectedBgView.backgroundColor =  UIColor(red: 0, green: 1, blue: 0.5, alpha: 0.2)
+        cell.selectedBackgroundView = cellSelectedBgView
         
-            var myImage = obj.valueForKey(ITEM_NAME4)
         
+         //tag1 写真
+        var urlstring:String = obj.valueForKey(ITEM_NAME4) as! String
+        var myImage = NSURL(string: urlstring)!
+        
+        if (urlstring != "") {
+            
+            
             let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs([myImage], options: nil)
             let asset: PHAsset = fetchResult.firstObject as! PHAsset
             let manager: PHImageManager = PHImageManager()
@@ -127,18 +142,12 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
                 contentMode: .AspectFill,
                 options: nil) { (image, info) -> Void in
                     
-                
-                    //firstImage = image
+                var firstImage = cell.viewWithTag(1) as! UIImageView
+                    firstImage.image = image
             }
             
-            
+        }
         
-
-        
-        //tag1 写真
-        var firstImage = cell.viewWithTag(1) as! UIImage
-            self.firstImage.image = UIImage(obj.valueForKey(ITEM_NAME4) as! String)
-
         //tag2 Date
         var firstDate = cell.viewWithTag(2) as! UILabel
             df.dateFromString(firstDate.text!)
@@ -157,29 +166,38 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
      // 選択された時に行う処理
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("\(indexPath.row)行目を選択")
-        //firstIndex = indexPath.row
+        firstIndex = indexPath.row
         performSegueWithIdentifier("show1",sender: nil)
+
     }
+    
+    // Segueで画面遷移する時
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var thirdVC = segue.destinationViewController as! ThirdViewController
+        
+        thirdVC.thirdIndex = firstIndex
+    }
+
 
    
 
     
-       //広告
-    //バナーに広告が表示された時
-    func bannerViewDidLoadAd(banner: ADBannerView!) {
-        self.myiAd.hidden = false
-    }
-    
-    //バナーがクリックされた時
-    func bannerViewACtionShouldBegin(banner:ADBannerView!,wullLeaveApplication willLeave: Bool) ->Bool{
-        return willLeave
-    }
-    
-    //広告表示にエラーが発生した場合
-    func bannerView(banner:ADBannerView!, didFailToReceiveAdWithError error:NSError!) {
-        self.myiAd.hidden = true
-    }
-
+//       //広告
+//    //バナーに広告が表示された時
+//    func bannerViewDidLoadAd(banner: ADBannerView!) {
+//        self.myiAd.hidden = false
+//    }
+//    
+//    //バナーがクリックされた時
+//    func bannerViewACtionShouldBegin(banner:ADBannerView!,wullLeaveApplication willLeave: Bool) ->Bool{
+//        return willLeave
+//    }
+//    
+//    //広告表示にエラーが発生した場合
+//    func bannerView(banner:ADBannerView!, didFailToReceiveAdWithError error:NSError!) {
+//        self.myiAd.hidden = true
+//    }
+//
     
     
 }

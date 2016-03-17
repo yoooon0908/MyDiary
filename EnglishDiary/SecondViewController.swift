@@ -42,7 +42,7 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         super.viewDidLoad()
         
         appDelegate.edit = ""
-        readData()
+       // readData()
         
         //広告
         super.viewDidLoad()
@@ -50,15 +50,7 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         self.myiAd.hidden = true
 
         
-        //        //ファイルの場所を探せる↓
-        //#if DEBUG
-//                    print("----------------------------------");
-//                    print("[DEBUG]");
-//                    let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-//                    print(documentsPath)
-//                    print("----------------------------------");
-        //        //#endif
-
+      
        
     }
     
@@ -77,7 +69,7 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
             let results: Array = try context.executeFetchRequest(request)
             
             let df = NSDateFormatter()
-            df.dateFormat = "yyyy/MM/dd"
+                df.dateFormat = "yyyy/MM/dd"
             
                             // 見つからなかったら新規登録
                 let entity: NSEntityDescription! = NSEntityDescription.entityForName(ENTITY_NAME, inManagedObjectContext: context)
@@ -95,8 +87,11 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
                 print("INSERT DATE: \(secDate.text)")
                 print("INSERT IMAGE: \(secImageView.image)")
             
-            appDelegate.texttmp = ""
-            appDelegate.langEn = ""
+                appDelegate.texttmp = ""
+                appDelegate.langEn = ""
+            
+            
+            
                 
                 do {
                     try context.save()
@@ -113,40 +108,6 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         return ret
     }
     
-    // データ読み込み
-    func readData() -> String{
-        var ret = ""
-        
-        let appDelegate: AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
-        let context: NSManagedObjectContext = appDelegate.managedObjectContext
-        let request = NSFetchRequest(entityName: ENTITY_NAME)
-        request.returnsObjectsAsFaults = false
-        
-        do {
-            let results : Array = try context.executeFetchRequest(request)
-            if (results.count > 0 ) {
-                // 見つかったら読み込み
-                let obj = results[0] as! NSManagedObject
-                let txt1 = obj.valueForKey(ITEM_NAME1) as! String
-                let txt2 = obj.valueForKey(ITEM_NAME2) as! String
-                let txt3 = obj.valueForKey(ITEM_NAME3) as! NSDate
-                let txt4 = obj.valueForKey(ITEM_NAME4) as! String
-                
-                print("READ CONTENT:\(txt1)")
-                print("READ TITLE:\(txt2)")
-                print("READ DATE:\(txt3)")
-                print("READ IMAGE:\(txt4)")
-                
-                
-            }
-        } catch let error as NSError {
-            // エラー処理
-            print("READ ERROR:\(error.localizedDescription)")
-        }
-        return ret
-    }
-    
-   
     
     override func viewWillAppear(animated: Bool) {
          var langEn = appDelegate.langEn
@@ -226,6 +187,9 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     
     @IBAction func tapPhoto(sender: UIButton) {
         
+        appDelegate.texttmp = secContent.text
+
+        
         // フォトライブラリが使用可能か？
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
             
@@ -260,29 +224,32 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
             }
         }
         
+        secContent.text = appDelegate.texttmp
+
+        
         picker.dismissViewControllerAnimated(true, completion: nil)
         
     }
     
     
     
-    //広告
-    //バナーに広告が表示された時
-    func bannerViewDidLoadAd(banner: ADBannerView!) {
-        self.myiAd.hidden = false
-    }
-    
-    //バナーがクリックされた時
-    func bannerViewACtionShouldBegin(banner:ADBannerView!,wullLeaveApplication willLeave: Bool) ->Bool{
-        return willLeave
-    }
-    
-    //広告表示にエラーが発生した場合
-    func bannerView(banner:ADBannerView!, didFailToReceiveAdWithError error:NSError!) {
-        self.myiAd.hidden = true
-    }
-    
-    
+//    //広告
+//    //バナーに広告が表示された時
+//    func bannerViewDidLoadAd(banner: ADBannerView!) {
+//        self.myiAd.hidden = false
+//    }
+//    
+//    //バナーがクリックされた時
+//    func bannerViewACtionShouldBegin(banner:ADBannerView!,wullLeaveApplication willLeave: Bool) ->Bool{
+//        return willLeave
+//    }
+//    
+//    //広告表示にエラーが発生した場合
+//    func bannerView(banner:ADBannerView!, didFailToReceiveAdWithError error:NSError!) {
+//        self.myiAd.hidden = true
+//    }
+//    
+//    
 
 }
 

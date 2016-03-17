@@ -22,6 +22,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var FBBtn: UIButton!
     @IBOutlet var myiAd: ADBannerView!
   
+    var thirdIndex = -1
     
     //DBの名前
     let ENTITY_NAME = "Data"
@@ -45,12 +46,6 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
         
         
-//        thTitle.text
-//        thDate.text
-//        thContent.text
-//        thImage.image 
-        
-        
         //広告
         super.viewDidLoad()
         self.canDisplayBannerAds = true
@@ -60,21 +55,8 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         appDelegate.edit = "edit"
         readData()
         
-        //        //ファイルの場所を探せる↓
-        //#if DEBUG
-//        print("----------------------------------");
-//        print("[DEBUG]");
-//        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-//        print(documentsPath)
-//        print("----------------------------------");
-        //        //#endif
-
-        
     }
     
-    
-    
-
     
     
     // データ更新
@@ -144,6 +126,11 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
             let results : Array = try context.executeFetchRequest(request)
             if (results.count > 0 ) {
                 // 見つかったら読み込み
+                
+                let df = NSDateFormatter()
+                df.dateFormat = "yyyy/MM/dd"
+                
+                
                 let obj = results[0] as! NSManagedObject
                 let txt1 = obj.valueForKey(ITEM_NAME1) as! String
                 let txt2 = obj.valueForKey(ITEM_NAME2) as! String
@@ -151,7 +138,36 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 let txt4 = obj.valueForKey(ITEM_NAME4) as! String
                 
                 
-                //thImage.image = txt4
+                //表示
+//                thContent.text = obj.valueForKey(ITEM_NAME1)![thirdIndex] as! String
+//                thTitle.text = obj.valueForKey(ITEM_NAME2)![thirdIndex] as! String
+//                thDate.text = df.stringFromDate(obj.valueForKey(ITEM_NAME3)![thirdIndex] as! NSDate)
+//                
+//                
+//                var myDefault = NSUserDefaults.standardUserDefaults()
+//                
+//                
+//                if (myDefault.objectForKey("NAME") != nil){
+//                    var myStr:String = myDefault.objectForKey("NAME")! as! String
+//                    
+//                    
+//                    var assetURL = NSURL(string: myStr as! String)!
+//                    
+//                    
+//                    
+//                    let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs([assetURL], options: nil)
+//                    let asset: PHAsset = fetchResult.firstObject as! PHAsset
+//                    let manager: PHImageManager = PHImageManager()
+//                    manager.requestImageForAsset(asset,
+//                        targetSize: CGSizeMake(100, 100),
+//                        contentMode: .AspectFill,
+//                        options: nil) { (image, info) -> Void in
+//                            
+//                            self.thImage.image = image
+//                    }
+//                    
+//                }
+//                
                 print("READ CONTENT:\(txt1)")
                 print("READ TITLE:\(txt2)")
                 print("READ DATE:\(txt3)")
@@ -174,34 +190,8 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         thContent.text = appDelegate.texttmp + langEn
         
         
-        var myDefault = NSUserDefaults.standardUserDefaults()
         
         
-        if (myDefault.objectForKey("NAME") != nil){
-            var myStr:String = myDefault.objectForKey("NAME")! as! String
-            //assetURLの読み込み
-            //var image = assetURL
-            
-            
-            //let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs(fileURLWithPath: NSURL(assetURL), options: nil)
-            
-            var assetURL = NSURL(string: myStr as! String)!
-            
-            
-                    
-                    let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs([assetURL], options: nil)
-                    let asset: PHAsset = fetchResult.firstObject as! PHAsset
-                    let manager: PHImageManager = PHImageManager()
-                    manager.requestImageForAsset(asset,
-                        targetSize: CGSizeMake(100, 100),
-                        contentMode: .AspectFill,
-                        options: nil) { (image, info) -> Void in
-                            
-                            self.thImage.image = image
-                    }
-            
-        
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -225,6 +215,10 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @IBAction func tapImage(sender: UIButton) {
+        
+        appDelegate.texttmp = thContent.text
+
+        
         
         // フォトライブラリが使用可能か？
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
@@ -258,11 +252,8 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
             }
         }
         
+        thContent.text = appDelegate.texttmp
         picker.dismissViewControllerAnimated(true, completion: nil)
-        
-        
-        
-        
         
     }
     
@@ -301,21 +292,21 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
    
     
     
-    //広告
-    //バナーに広告が表示された時
-    func bannerViewDidLoadAd(banner: ADBannerView!) {
-        self.myiAd.hidden = false
-    }
-    
-    //バナーがクリックされた時
-    func bannerViewACtionShouldBegin(banner:ADBannerView!,wullLeaveApplication willLeave: Bool) ->Bool{
-        return willLeave
-    }
-    
-    //広告表示にエラーが発生した場合
-    func bannerView(banner:ADBannerView!, didFailToReceiveAdWithError error:NSError!) {
-        self.myiAd.hidden = true
-    }
+//    //広告
+//    //バナーに広告が表示された時
+//    func bannerViewDidLoadAd(banner: ADBannerView!) {
+//        self.myiAd.hidden = false
+//    }
+//    
+//    //バナーがクリックされた時
+//    func bannerViewACtionShouldBegin(banner:ADBannerView!,wullLeaveApplication willLeave: Bool) ->Bool{
+//        return willLeave
+//    }
+//    
+//    //広告表示にエラーが発生した場合
+//    func bannerView(banner:ADBannerView!, didFailToReceiveAdWithError error:NSError!) {
+//        self.myiAd.hidden = true
+//    }
     
     
 
