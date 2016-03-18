@@ -371,6 +371,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="112" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hxx-P2-Nno">
                                 <rect key="frame" x="0.0" y="28" width="320" height="443"/>
                                 <color key="backgroundColor" red="1" green="0.72520647029999996" blue="0.80467738990000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="1" green="0.72520647029999996" blue="0.80467738990000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell3" rowHeight="112" id="3C9-PO-dKT" customClass="myTableViewCell" customModule="EnglishDiary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="112"/>
@@ -379,24 +380,25 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2016/01/01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FC1-VF-gHz">
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2000000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2016/01/01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FC1-VF-gHz">
                                                     <rect key="frame" x="117" y="8" width="195" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="3CA-62-c05"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="39"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.49880064559999998" green="0.47183973829999998" blue="0.50337357949999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqa-eY-FIn">
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="3000000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqa-eY-FIn">
                                                     <rect key="frame" x="117" y="59" width="195" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="9Nt-e4-uwa"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="41"/>
+                                                    <color key="textColor" red="0.49880064559999998" green="0.47183973829999998" blue="0.50337357949999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="03.png" translatesAutoresizingMaskIntoConstraints="NO" id="kP8-ho-BPk">
+                                                <imageView userInteractionEnabled="NO" tag="1000000" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="03.png" translatesAutoresizingMaskIntoConstraints="NO" id="kP8-ho-BPk">
                                                     <rect key="frame" x="8" y="8" width="101" height="95"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="101" id="5k4-Nh-NjH"/>
@@ -417,7 +419,7 @@
                                                 <constraint firstItem="fqa-eY-FIn" firstAttribute="leading" secondItem="kP8-ho-BPk" secondAttribute="trailing" constant="8" id="w3g-CR-KZi"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.72520647029999996" blue="0.80467738990000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.94000000000000006" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="firstDate" destination="FC1-VF-gHz" id="7wP-f1-1AZ"/>
                                             <outlet property="firstImage" destination="kP8-ho-BPk" id="52f-s4-ksI"/>

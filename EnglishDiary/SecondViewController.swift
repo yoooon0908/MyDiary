@@ -16,21 +16,18 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     var secSelect = -1
     var englist:[NSDictionary] = []
     
-    //DBの名前
+    //DB name
     let ENTITY_NAME = "Data"
-    //txt1
+    //Item name
     let ITEM_NAME1 = "content"
-    //txt2
     let ITEM_NAME2 = "title"
-    //txt3
     let ITEM_NAME3 = "date"
-    //txt4
     let ITEM_NAME4 = "image"
-    
-    var assetURL = ""
     
     
     var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var assetURL = ""
+
     
     @IBOutlet weak var myiAd: ADBannerView!
     @IBOutlet weak var secDate: UITextField!
@@ -38,6 +35,7 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     @IBOutlet weak var secImageView: UIImageView!
     @IBOutlet weak var secContent: UITextView!
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,8 +46,6 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         super.viewDidLoad()
         self.canDisplayBannerAds = true
         self.myiAd.hidden = true
-
-        
       
        
     }
@@ -63,7 +59,7 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         let appDelegate: AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         let context: NSManagedObjectContext = appDelegate.managedObjectContext
         let request = NSFetchRequest(entityName: ENTITY_NAME)
-        request.returnsObjectsAsFaults = false
+            request.returnsObjectsAsFaults = false
         
         do {
             let results: Array = try context.executeFetchRequest(request)
@@ -90,8 +86,6 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
                 appDelegate.texttmp = ""
                 appDelegate.langEn = ""
             
-            
-            
                 
                 do {
                     try context.save()
@@ -110,18 +104,14 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     
     
     override func viewWillAppear(animated: Bool) {
-         var langEn = appDelegate.langEn
+        var langEn = appDelegate.langEn
         secContent.text = appDelegate.texttmp + langEn
-        
         var myDefault = NSUserDefaults.standardUserDefaults()
-        
         
         if (myDefault.objectForKey("NAME") != nil){
             var myStr:String = myDefault.objectForKey("NAME")! as! String
 
             var assetURL = NSURL(string: myStr as! String)!
-        
-        
         
             let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs([assetURL], options: nil)
             let asset: PHAsset = fetchResult.firstObject as! PHAsset
@@ -131,7 +121,7 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
                     contentMode: .AspectFill,
                     options: nil) { (image, info) -> Void in
                 
-                        self.secImageView.image = image
+                    self.secImageView.image = image
             }
 
         }
@@ -159,36 +149,36 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         
         
         let df = NSDateFormatter()
-        df.dateFormat = "yyyy/MM/dd"
+            df.dateFormat = "yyyy/MM/dd"
       
 
         //アラートを出す
         if df.dateFromString(secDate.text!) == ""  {
             let alertController = UIAlertController(title: "Please!!", message: "すべての項目を入力してください。", preferredStyle: .Alert)
             let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-            alertController.addAction(defaultAction)
-            presentViewController(alertController, animated: true, completion: nil)
+                alertController.addAction(defaultAction)
+                presentViewController(alertController, animated: true, completion: nil)
         }else if secImageView.image == "" {
             let alertController = UIAlertController(title: "Please!!", message: "すべての項目を入力してください。", preferredStyle: .Alert)
             let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-            alertController.addAction(defaultAction)
-            presentViewController(alertController, animated: true, completion: nil)
+                alertController.addAction(defaultAction)
+                presentViewController(alertController, animated: true, completion: nil)
         }else if secTitle.text == "" {
             let alertController = UIAlertController(title: "Please!!", message: "すべての項目を入力してください。", preferredStyle: .Alert)
             let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-            alertController.addAction(defaultAction)
-            presentViewController(alertController, animated: true, completion: nil)
+                alertController.addAction(defaultAction)
+                presentViewController(alertController, animated: true, completion: nil)
         }else if secContent.text == "" {
             let alertController = UIAlertController(title: "Please!!", message: "すべての項目を入力してください。", preferredStyle: .Alert)
             let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-            alertController.addAction(defaultAction)
-            presentViewController(alertController, animated: true, completion: nil)
+                alertController.addAction(defaultAction)
+                presentViewController(alertController, animated: true, completion: nil)
         }else{
             var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("welcome3")
             self.presentViewController(targetView as! UIViewController, animated: true, completion: nil)
         }
 
-          writeData()
+        writeData()
     }
     
     @IBAction func tapPhoto(sender: UIButton) {
@@ -201,8 +191,8 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
             
             // フォトライブラリの選択画面を表示
             let picker = UIImagePickerController()
-            picker.delegate = self
-            picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+                picker.delegate = self
+                picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
             self.presentViewController(picker, animated: true, completion: nil)
         }
     }
@@ -232,8 +222,6 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         }
         
         secContent.text = appDelegate.texttmp
-
-        
         picker.dismissViewControllerAnimated(true, completion: nil)
         
     }

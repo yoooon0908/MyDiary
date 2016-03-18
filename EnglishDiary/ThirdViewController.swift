@@ -22,35 +22,26 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var FBBtn: UIButton!
     @IBOutlet var myiAd: ADBannerView!
   
-    var thirdIndex = -1
-    
-    //DBの名前
+    //DB name
     let ENTITY_NAME = "Data"
-    //txt1
+    //Item name
     let ITEM_NAME1 = "content"
-    //txt2
     let ITEM_NAME2 = "title"
-    //txt3
     let ITEM_NAME3 = "date"
-    //txt4
     let ITEM_NAME4 = "image"
     
-    var assetURL = ""
-
-    
-    
     var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var assetURL = ""
+    var thirdIndex = -1
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         //広告
         super.viewDidLoad()
         self.canDisplayBannerAds = true
         self.myiAd.hidden = true
-
         
         appDelegate.edit = "edit"
         readData()
@@ -98,14 +89,14 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 
                 do {
                     try context.save()
-                } catch let error as NSError {
+                }catch let error as NSError{
                     // エラー処理
                     print("INSERT ERROR:\(error.localizedDescription)")
                 }
                 ret = true
             }
             
-        } catch let error as NSError {
+        }catch let error as NSError{
             // エラー処理
             print("FETCH ERROR:\(error.localizedDescription)")
         }
@@ -120,7 +111,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let appDelegate: AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         let context: NSManagedObjectContext = appDelegate.managedObjectContext
         let request = NSFetchRequest(entityName: ENTITY_NAME)
-        request.returnsObjectsAsFaults = false
+            request.returnsObjectsAsFaults = false
         
         do {
             let results : Array = try context.executeFetchRequest(request)
@@ -137,20 +128,15 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 let txt3 = obj.valueForKey(ITEM_NAME3) as! NSDate
                 let txt4 = obj.valueForKey(ITEM_NAME4) as! String
                 
-                
                 //表示
-                thContent.text = obj.valueForKey(ITEM_NAME1)![thirdIndex] as! String
-                thTitle.text = obj.valueForKey(ITEM_NAME2)![thirdIndex] as! String
-                thDate.text = df.stringFromDate(obj.valueForKey(ITEM_NAME3)![thirdIndex] as! NSDate)
+                thContent.text = obj.valueForKey(ITEM_NAME1) as! String
+                thTitle.text = obj.valueForKey(ITEM_NAME2) as! String
+                thDate.text = df.stringFromDate(obj.valueForKey(ITEM_NAME3) as! NSDate)
                 
-                
+                //写真表示
                 var myDefault = NSUserDefaults.standardUserDefaults()
-                
-                
                 if (myDefault.objectForKey("NAME") != nil){
                     var myStr:String = myDefault.objectForKey("NAME")! as! String
-                    
-                    
                     var assetURL = NSURL(string: myStr as! String)!
                     
                     
@@ -158,12 +144,12 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
                     let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs([assetURL], options: nil)
                     let asset: PHAsset = fetchResult.firstObject as! PHAsset
                     let manager: PHImageManager = PHImageManager()
-                    manager.requestImageForAsset(asset,
+                        manager.requestImageForAsset(asset,
                         targetSize: CGSizeMake(100, 100),
                         contentMode: .AspectFill,
                         options: nil) { (image, info) -> Void in
                             
-                            self.thImage.image = image
+                        self.thImage.image = image
                     }
                     
                 }
@@ -174,7 +160,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 print("READ IMAGE:\(txt4)")
                 
             }
-        } catch let error as NSError {
+        }catch let error as NSError{
             // エラー処理
             print("READ ERROR:\(error.localizedDescription)")
         }
@@ -186,12 +172,9 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     
     override func viewWillAppear(animated: Bool) {
+        
         var langEn = appDelegate.langEn
         thContent.text = appDelegate.texttmp + langEn
-        
-        
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -201,10 +184,8 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBAction func tapFBBtn(sender: UIButton) {
         var facebookVC = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-        facebookVC.setInitialText(thContent.text)
-        
-        
-        facebookVC.addImage(thImage.image)
+            facebookVC.setInitialText(thContent.text)
+            facebookVC.addImage(thImage.image)
         
         presentViewController(facebookVC, animated: true, completion: nil)
     }
@@ -218,8 +199,6 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         appDelegate.texttmp = thContent.text
 
-        
-        
         // フォトライブラリが使用可能か？
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
             
@@ -248,7 +227,6 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 
                 // シンクロを入れないとうまく動作しないときがあります
                 defaults.synchronize()
-
             }
         }
         
@@ -266,27 +244,28 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         if df.dateFromString(thDate.text!) == ""  {
             let alertController = UIAlertController(title: "Please!!", message: "すべての項目を入力してください。", preferredStyle: .Alert)
             let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-            alertController.addAction(defaultAction)
-            presentViewController(alertController, animated: true, completion: nil)
+                alertController.addAction(defaultAction)
+                presentViewController(alertController, animated: true, completion: nil)
         }else if thImage.image == "" {
             let alertController = UIAlertController(title: "Please!!", message: "すべての項目を入力してください。", preferredStyle: .Alert)
             let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-            alertController.addAction(defaultAction)
-            presentViewController(alertController, animated: true, completion: nil)
+                alertController.addAction(defaultAction)
+                presentViewController(alertController, animated: true, completion: nil)
         }else if thTitle.text == "" {
             let alertController = UIAlertController(title: "Please!!", message: "すべての項目を入力してください。", preferredStyle: .Alert)
             let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-            alertController.addAction(defaultAction)
-            presentViewController(alertController, animated: true, completion: nil)
+                alertController.addAction(defaultAction)
+                presentViewController(alertController, animated: true, completion: nil)
         }else if thContent.text == "" {
             let alertController = UIAlertController(title: "Please!!", message: "すべての項目を入力してください。", preferredStyle: .Alert)
             let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-            alertController.addAction(defaultAction)
-            presentViewController(alertController, animated: true, completion: nil)
+                alertController.addAction(defaultAction)
+                presentViewController(alertController, animated: true, completion: nil)
         }else{
             var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("welcome3")
             self.presentViewController(targetView as! UIViewController, animated: true, completion: nil)
         }
+        
         writeData()
     }
    
@@ -307,7 +286,5 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     func bannerView(banner:ADBannerView!, didFailToReceiveAdWithError error:NSError!) {
         self.myiAd.hidden = true
     }
-    
-    
 
 }

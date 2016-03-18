@@ -11,18 +11,17 @@ import UIKit
 
 class FifthViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
-    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     
     @IBOutlet var myiAd: ADBannerView!
     @IBOutlet weak var fifTableView: UITableView!
     
-    //気分をリストで表示できるようにする
-    //辞書＋辞書
     
     var fifSelect = -1
     var englist:[NSDictionary] = []
-
     var langEn = -1
+    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +40,7 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
         return englist.count
     }
     
-    //表示するセルの中身2
+    //表示するセルの中身
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->UITableViewCell{
         
         var cell = UITableViewCell(style: .Default, reuseIdentifier: "myCell2")
@@ -55,8 +54,6 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.textLabel!.textColor = UIColor.whiteColor()
         //ボールド
         cell.textLabel!.font = UIFont.boldSystemFontOfSize(UIFont.labelFontSize())
-//        //文字大きさ
-//        cell.textLabel!.font = UIFont.systemFontOfSize(15)
         // 背景色
         cell.backgroundColor = UIColor.clearColor()
         // 選択された時の背景色
@@ -70,9 +67,7 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     override func viewWillAppear(animated: Bool) {
-        //json.txtファイルを読み込んで
-        
-        
+        //ファイルを読み込む
         if fifSelect == 0 {
             var path = NSBundle.mainBundle().pathForResource("life", ofType: "txt")
             var jsondata = NSData(contentsOfFile: path!)
@@ -80,8 +75,6 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
            
             for data in jsonDictionaray {
                 var d1 = data["En"] as! String
-                
-                
                 self.englist.append(data as! NSDictionary)
                 print(d1)
                 
@@ -93,7 +86,6 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
         
             for data in jsonDictionaray {
                 var d1 = data["En"] as! String
-                
                 self.englist.append(data as! NSDictionary)
                 print(d1)
                
@@ -105,7 +97,6 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             for data in jsonDictionaray {
                 var d1 = data["En"] as! String
-                
                 self.englist.append(data as! NSDictionary)
                 print(d1)
             }
@@ -116,7 +107,6 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             for data in jsonDictionaray {
                 var d1 = data["En"] as! String
-                
                 self.englist.append(data as! NSDictionary)
                 print(d1)
             }
@@ -162,17 +152,13 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
     func bannerViewDidLoadAd(banner: ADBannerView!) {
         self.myiAd.hidden = false
     }
-    
     //バナーがクリックされた時
     func bannerViewACtionShouldBegin(banner:ADBannerView!,wullLeaveApplication willLeave: Bool) ->Bool{
         return willLeave
     }
-    
     //広告表示にエラーが発生した場合
     func bannerView(banner:ADBannerView!, didFailToReceiveAdWithError error:NSError!) {
         self.myiAd.hidden = true
     }
 
-    
-    
 }

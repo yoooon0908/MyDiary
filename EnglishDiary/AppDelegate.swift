@@ -16,11 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     
-    //Delegateを設定
     var langEn:String = ""
-    //フラグをつくる
     var edit = ""
-    
     var texttmp:String! = ""
     
     

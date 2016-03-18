@@ -15,24 +15,18 @@ import Photos
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     
-   var firstIndex = -1
-    
+    var firstIndex = -1
     var diaryList:NSArray = []
-    
-
     
   
     @IBOutlet weak var myiAd: ADBannerView!
     
-    //DBの名前
+    //DB name
     let ENTITY_NAME = "Data"
-    //txt1
+    //Item name
     let ITEM_NAME1 = "content"
-    //txt2
     let ITEM_NAME2 = "title"
-    //txt3
     let ITEM_NAME3 = "date"
-    //txt4
     let ITEM_NAME4 = "image"
     
     var assetURL = ""
@@ -50,6 +44,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.myiAd.hidden = true
         
         readData()
+
         
     }
     
@@ -60,7 +55,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         let appDelegate: AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         let context: NSManagedObjectContext = appDelegate.managedObjectContext
         let request = NSFetchRequest(entityName: ENTITY_NAME)
-        request.returnsObjectsAsFaults = false
+            request.returnsObjectsAsFaults = false
         
         do {
             
@@ -146,26 +141,26 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
             let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs([myImage], options: nil)
             let asset: PHAsset = fetchResult.firstObject as! PHAsset
             let manager: PHImageManager = PHImageManager()
-            manager.requestImageForAsset(asset,
+                manager.requestImageForAsset(asset,
                 targetSize: CGSizeMake(100, 100),
                 contentMode: .AspectFill,
                 options: nil) { (image, info) -> Void in
                     
-                var firstImage = cell.viewWithTag(1) as! UIImageView
+                var firstImage = cell.viewWithTag(1000000) as! UIImageView
                  
-                    firstImage.image = image
+                firstImage.image = image
             }
             
         }
         
         //tag2 Date
-        var firstDate = cell.viewWithTag(2) as! UILabel
+        var firstDate = cell.viewWithTag(2000000) as! UILabel
             df.dateFromString(firstDate.text!)
 
             firstDate.text = df.stringFromDate(obj.valueForKey(ITEM_NAME3) as! NSDate)
 
         //tag3 Title
-        var firstTitle = cell.viewWithTag(3) as! UILabel
+        var firstTitle = cell.viewWithTag(3000000) as! UILabel
             firstTitle.text = obj.valueForKey(ITEM_NAME2) as! String
         
         
@@ -173,27 +168,23 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
-//      //選択された時に行う処理
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        print("\(indexPath.row)行目を選択")
-//        firstIndex = indexPath.row
-//        performSegueWithIdentifier("show1",sender: nil)
-//
-//    }
-//    
-//     //Segueで画面遷移する時
-//    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if ((sender?.tag) != nil) {
-//            let thVC = segue.destinationViewController as! ThirdViewController
-//                thVC.thirdIndex = self.firstIndex[sender?.tag]
-//            
-//        }
-//
-//    }
+    //選択された時に行う処理
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("\(indexPath.row)行目を選択")
+        firstIndex = indexPath.row
+        performSegueWithIdentifier("show1",sender: nil)
 
+    }
+    
+     //Segueで画面遷移する時
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if ((sender?.tag) != nil) {
+            let thVC = segue.destinationViewController as! ThirdViewController
+                thVC.thirdIndex = (sender?.tag)! as Int
+            
+        }
 
-   
+    }
 
     
        //広告
