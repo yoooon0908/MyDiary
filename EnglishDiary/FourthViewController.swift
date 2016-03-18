@@ -73,21 +73,21 @@ class FourthViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
-//    //広告
-//    //バナーに広告が表示された時
-//    func bannerViewDidLoadAd(banner: ADBannerView!) {
-//        self.myAd.hidden = false
-//    }
-//    
-//    //バナーがクリックされた時
-//    func bannerViewACtionShouldBegin(banner:ADBannerView!,wullLeaveApplication willLeave: Bool) ->Bool{
-//        return willLeave
-//    }
-//    
-//    //広告表示にエラーが発生した場合
-//    func bannerView(banner:ADBannerView!, didFailToReceiveAdWithError error:NSError!) {
-//        self.myAd.hidden = true
-//    }
+    //広告
+    //バナーに広告が表示された時
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        self.myAd.hidden = false
+    }
+    
+    //バナーがクリックされた時
+    func bannerViewACtionShouldBegin(banner:ADBannerView!,wullLeaveApplication willLeave: Bool) ->Bool{
+        return willLeave
+    }
+    
+    //広告表示にエラーが発生した場合
+    func bannerView(banner:ADBannerView!, didFailToReceiveAdWithError error:NSError!) {
+        self.myAd.hidden = true
+    }
 
 
 }

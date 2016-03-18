@@ -152,6 +152,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
                 options: nil) { (image, info) -> Void in
                     
                 var firstImage = cell.viewWithTag(1) as! UIImageView
+                 
                     firstImage.image = image
             }
             
@@ -160,7 +161,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         //tag2 Date
         var firstDate = cell.viewWithTag(2) as! UILabel
             df.dateFromString(firstDate.text!)
-            //firstDate.text = obj.valueForKey(ITEM_NAME3) as! String
+
             firstDate.text = df.stringFromDate(obj.valueForKey(ITEM_NAME3) as! NSDate)
 
         //tag3 Title
@@ -172,20 +173,20 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
-     // 選択された時に行う処理
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("\(indexPath.row)行目を選択")
-        firstIndex = indexPath.row
-        performSegueWithIdentifier("show1",sender: nil)
-
-    }
-    
-    // Segueで画面遷移する時
-    
+//      //選択された時に行う処理
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        print("\(indexPath.row)行目を選択")
+//        firstIndex = indexPath.row
+//        performSegueWithIdentifier("show1",sender: nil)
+//
+//    }
+//    
+//     //Segueで画面遷移する時
+//    
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //        if ((sender?.tag) != nil) {
 //            let thVC = segue.destinationViewController as! ThirdViewController
-//                thVC.thirdIndex = self.firstIndex[(sender?.tag)!]
+//                thVC.thirdIndex = self.firstIndex[sender?.tag]
 //            
 //        }
 //
@@ -195,22 +196,22 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
    
 
     
-//       //広告
-//    //バナーに広告が表示された時
-//    func bannerViewDidLoadAd(banner: ADBannerView!) {
-//        self.myiAd.hidden = false
-//    }
-//    
-//    //バナーがクリックされた時
-//    func bannerViewACtionShouldBegin(banner:ADBannerView!,wullLeaveApplication willLeave: Bool) ->Bool{
-//        return willLeave
-//    }
-//    
-//    //広告表示にエラーが発生した場合
-//    func bannerView(banner:ADBannerView!, didFailToReceiveAdWithError error:NSError!) {
-//        self.myiAd.hidden = true
-//    }
-//
+       //広告
+    //バナーに広告が表示された時
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        self.myiAd.hidden = false
+    }
+    
+    //バナーがクリックされた時
+    func bannerViewACtionShouldBegin(banner:ADBannerView!,wullLeaveApplication willLeave: Bool) ->Bool{
+        return willLeave
+    }
+    
+    //広告表示にエラーが発生した場合
+    func bannerView(banner:ADBannerView!, didFailToReceiveAdWithError error:NSError!) {
+        self.myiAd.hidden = true
+    }
+
     
     
 }

@@ -215,6 +215,7 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
             if let photo:UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
                 
                 // ImageViewにその画像を設定
+               
                 secImageView.image = photo
                 assetURL = (info[UIImagePickerControllerReferenceURL]?.description)!
                 
@@ -239,23 +240,23 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     
     
     
-//    //広告
-//    //バナーに広告が表示された時
-//    func bannerViewDidLoadAd(banner: ADBannerView!) {
-//        self.myiAd.hidden = false
-//    }
-//    
-//    //バナーがクリックされた時
-//    func bannerViewACtionShouldBegin(banner:ADBannerView!,wullLeaveApplication willLeave: Bool) ->Bool{
-//        return willLeave
-//    }
-//    
-//    //広告表示にエラーが発生した場合
-//    func bannerView(banner:ADBannerView!, didFailToReceiveAdWithError error:NSError!) {
-//        self.myiAd.hidden = true
-//    }
-//    
-//    
+    //広告
+    //バナーに広告が表示された時
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        self.myiAd.hidden = false
+    }
+    
+    //バナーがクリックされた時
+    func bannerViewACtionShouldBegin(banner:ADBannerView!,wullLeaveApplication willLeave: Bool) ->Bool{
+        return willLeave
+    }
+    
+    //広告表示にエラーが発生した場合
+    func bannerView(banner:ADBannerView!, didFailToReceiveAdWithError error:NSError!) {
+        self.myiAd.hidden = true
+    }
+    
+    
 
 }
 

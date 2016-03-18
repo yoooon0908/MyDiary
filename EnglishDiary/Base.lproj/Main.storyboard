@@ -385,7 +385,7 @@
                                                         <constraint firstAttribute="height" constant="43" id="3CA-62-c05"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="39"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqa-eY-FIn">
@@ -394,7 +394,6 @@
                                                         <constraint firstAttribute="height" constant="44" id="9Nt-e4-uwa"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="41"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="03.png" translatesAutoresizingMaskIntoConstraints="NO" id="kP8-ho-BPk">
@@ -457,7 +456,7 @@
                     <tabBarItem key="tabBarItem" title="Read" image="02.png" id="1Mc-pn-PBL"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="myiAd" destination="CRc-6h-hxh" id="3ju-lX-QdA"/>
+                        <outlet property="myiAd" destination="CRc-6h-hxh" id="w81-Np-Jmv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O1R-SH-XWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -621,6 +620,6 @@
         <image name="04.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6cj-lN-Sfn"/>
+        <segue reference="RIQ-Eh-4WI"/>
     </inferredMetricsTieBreakers>
 </document>
