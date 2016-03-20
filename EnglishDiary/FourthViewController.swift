@@ -18,7 +18,7 @@ class FourthViewController: UIViewController, UITableViewDataSource, UITableView
     
     var main = ["Life","Weather","Dream","Housework","Feeling"]
     var select = -1
-    var fourthIndex = -1
+    var thirdIndex = -1
     
 
     override func viewDidLoad() {
@@ -66,6 +66,7 @@ class FourthViewController: UIViewController, UITableViewDataSource, UITableView
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var FifthVC = segue.destinationViewController as! FifthViewController
             FifthVC.fifSelect = select
+            FifthVC.thirdIndex = thirdIndex
     }
     
     override func didReceiveMemoryWarning() {

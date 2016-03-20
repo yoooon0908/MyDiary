@@ -272,7 +272,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         var FourthVC = segue.destinationViewController as! FourthViewController
-        FourthVC.fourthIndex = thirdIndex
+        FourthVC.thirdIndex = thirdIndex
     }
     
     //広告

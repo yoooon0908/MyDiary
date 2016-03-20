@@ -16,7 +16,7 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet var myiAd: ADBannerView!
     @IBOutlet weak var fifTableView: UITableView!
     
-    
+    var thirdIndex = -1
     var fifSelect = -1
     var englist:[NSDictionary] = []
     var langEn = -1
@@ -134,7 +134,11 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
             self.presentViewController(targetView as! UIViewController, animated: true, completion: nil)
             
         }else{
-            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("welcomeedit")
+            
+            var targetView: ThirdViewController = self.storyboard!.instantiateViewControllerWithIdentifier("welcomeedit") as! ThirdViewController
+            
+            targetView.thirdIndex = thirdIndex
+            
             self.presentViewController(targetView as! UIViewController, animated: true, completion: nil)
             
         }
