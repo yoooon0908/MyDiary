@@ -134,26 +134,6 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 thDate.text = df.stringFromDate(obj.valueForKey(ITEM_NAME3) as! NSDate)
                 
                 //写真表示
-//                var myDefault = NSUserDefaults.standardUserDefaults()
-//                if (myDefault.objectForKey("NAME") != nil){
-//                    var myStr:String = myDefault.objectForKey("NAME")! as! String
-//                    var assetURL = NSURL(string: myStr as! String)!
-//                    
-//                    
-//                    
-//                    let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs([assetURL], options: nil)
-//                    let asset: PHAsset = fetchResult.firstObject as! PHAsset
-//                    let manager: PHImageManager = PHImageManager()
-//                        manager.requestImageForAsset(asset,
-//                        targetSize: CGSizeMake(100, 100),
-//                        contentMode: .AspectFill,
-//                        options: nil) { (image, info) -> Void in
-//                            
-//                        self.thImage.image = image
-//                    }
-                
-//                }
-                
                 assetURL = txt4
                 appDelegate.langEn = txt1
                 
@@ -289,6 +269,11 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
    
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        var FourthVC = segue.destinationViewController as! FourthViewController
+        FourthVC.fourthIndex = thirdIndex
+    }
     
     //広告
     //バナーに広告が表示された時

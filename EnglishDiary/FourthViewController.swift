@@ -18,6 +18,7 @@ class FourthViewController: UIViewController, UITableViewDataSource, UITableView
     
     var main = ["Life","Weather","Dream","Housework","Feeling"]
     var select = -1
+    var fourthIndex = -1
     
 
     override func viewDidLoad() {
