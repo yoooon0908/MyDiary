@@ -67,7 +67,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
             
             if (results.count > 0 ) {
                 // 検索して見つかったらアップデートする
-                let obj = results[0] as! NSManagedObject
+                let obj = results[thirdIndex] as! NSManagedObject
                 
                 let txt1 = obj.valueForKey(ITEM_NAME1) as! String
                 let txt2 = obj.valueForKey(ITEM_NAME2) as! String
@@ -134,24 +134,43 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 thDate.text = df.stringFromDate(obj.valueForKey(ITEM_NAME3) as! NSDate)
                 
                 //写真表示
-                var myDefault = NSUserDefaults.standardUserDefaults()
-                if (myDefault.objectForKey("NAME") != nil){
-                    var myStr:String = myDefault.objectForKey("NAME")! as! String
-                    var assetURL = NSURL(string: myStr as! String)!
+//                var myDefault = NSUserDefaults.standardUserDefaults()
+//                if (myDefault.objectForKey("NAME") != nil){
+//                    var myStr:String = myDefault.objectForKey("NAME")! as! String
+//                    var assetURL = NSURL(string: myStr as! String)!
+//                    
+//                    
+//                    
+//                    let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs([assetURL], options: nil)
+//                    let asset: PHAsset = fetchResult.firstObject as! PHAsset
+//                    let manager: PHImageManager = PHImageManager()
+//                        manager.requestImageForAsset(asset,
+//                        targetSize: CGSizeMake(100, 100),
+//                        contentMode: .AspectFill,
+//                        options: nil) { (image, info) -> Void in
+//                            
+//                        self.thImage.image = image
+//                    }
+                
+//                }
+                
+                assetURL = txt4
+                appDelegate.langEn = txt1
+                
+                if (assetURL != "") {
                     
+                    var assetURLtmp = NSURL(string: txt4 as! String)!
                     
-                    
-                    let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs([assetURL], options: nil)
+                    let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithALAssetURLs([assetURLtmp], options: nil)
                     let asset: PHAsset = fetchResult.firstObject as! PHAsset
                     let manager: PHImageManager = PHImageManager()
                         manager.requestImageForAsset(asset,
                         targetSize: CGSizeMake(100, 100),
                         contentMode: .AspectFill,
                         options: nil) { (image, info) -> Void in
-                            
+                                                
                         self.thImage.image = image
                     }
-                    
                 }
                 
                 print("READ CONTENT:\(txt1)")
