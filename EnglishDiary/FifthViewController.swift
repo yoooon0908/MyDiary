@@ -151,7 +151,7 @@ class FifthViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     
-    //広告
+//    //広告
     //バナーに広告が表示された時
     func bannerViewDidLoadAd(banner: ADBannerView!) {
         self.myiAd.hidden = false

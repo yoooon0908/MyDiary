@@ -24,11 +24,11 @@ class FourthViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //広告
-        super.viewDidLoad()
-        self.canDisplayBannerAds = true
-        self.myAd.hidden = true
-
+//        //広告
+//        super.viewDidLoad()
+//        self.canDisplayBannerAds = true
+//        self.myAd.hidden = true
+//
     }
     
     //行数
